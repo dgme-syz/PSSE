@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Our Website</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Website</h1>
+    </header>
+    
+    <nav>
+        <!-- 导航链接 -->
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet tortor vel libero varius bibendum.</p>
+    </section>
+
+    <section>
+        <h2>Our Services</h2>
+        <ul>
+            <li>Service 1</li>
+            <li>Service 2</li>
+            <li>Service 3</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Contact Us</h2>
+        <p>Email: info@example.com</p>
+        <p>Phone: +1 (123) 456-7890</p>
+    </section>
+
+    <section>
+        {% if user.is_authenticated %}
+        <!-- 显示已登录用户信息 -->
+        <h2>Welcome, {{ user.username }}</h2>
+        <p>Email: {{ user.email }}</p>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+        {% else %}
+        <!-- 显示注册和登录按钮 -->
+        <p><a href="{% url 'register' %}">Register</a></p>
+        <p><a href="{% url 'login' %}">Login</a></p>
+        {% endif %}
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Company Name</p>
+    </footer>
+</body>
+</html>
