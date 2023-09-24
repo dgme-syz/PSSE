@@ -16,9 +16,7 @@
                 <input class="pwd" id="password" v-model="pwd" :type="showPassword ? 'text' : 'password'" placeholder="密码">
             </div>
             <div class="button">
-                <router-link to="/home">
-                    <el-button color="#626aef" :dark="isDark" plain>登录</el-button>
-                </router-link>  
+                <el-button color="#626aef" :dark="isDark" plain @click="submitForm">登录</el-button>
                 <el-button type="info" round @click="togglePasswordVisibility">显示密码</el-button>
             </div>
         </div>
@@ -36,16 +34,46 @@
 
 
 <script>
+
+import axios from 'axios';
+
 export default {
-    data() {
-    return {
-        pwd: '',
-        showPassword: false
-    };
+    data: function() {
+        return {
+            name: '',
+            pwd: '',
+            showPassword: false
+        };
     },
     methods: {
-        togglePasswordVisibility() {
+        togglePasswordVisibility: function() {
             this.showPassword = !this.showPassword;
+        },
+        submitForm: function() {
+            var formData = {
+                name: this.name,
+                password: this.pwd
+            };
+
+            axios.post('login/',  formData, {
+                headers : {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then((response) => {
+                    if (response.data.success) {
+                        this.$store.commit('setloggedIn', true);
+                        this.$router.push('./home');
+                    }
+                })
+                .catch((error) => {
+                    if(this.$store.state.loggedIn)
+                        console.log('yes');
+                    else console.log('no');
+                    console.log(formData.name);
+                    console.log(formData.password);
+                    console.error(error);
+            });
         }
     }
 }
