@@ -1,1 +1,5 @@
 /web/node_modules
+/django_app/django_app/__pycache__
+/django_app/management/__pycache__
+/django_app/db.sqlite3
+/web/dist
