@@ -56,6 +56,7 @@ export default {
             };
 
             axios.post('login/',  formData, {
+                withCredentials: true, // 包含CSRF令牌
                 headers : {
                     'Content-Type': 'application/json'
                 }

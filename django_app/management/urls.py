@@ -21,4 +21,5 @@ urlpatterns = [
     # path('register/', views.register, name='register'),
     path('login/', views.user_login, name='login'),
     path('', views.home_view, name='index'),
+    path('api/register/',views.register_user,name='register'),
 ]
