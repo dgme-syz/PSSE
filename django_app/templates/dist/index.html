@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>demo</title>
+    {% load static %}
+    <!-- 引入静态资源 -->
+    <link href="{% static 'css/chunk-vendors.562dda21.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app.7cd79cab.css' %}" rel="stylesheet">
+    <!-- 修改 JavaScript 资源路径 -->
+    <script defer src="{% static 'js/chunk-vendors.77c3dfc5.js' %}"></script>
+    <script defer src="{% static 'js/app.c3089c60.js' %}"></script>
+  </head>
+  <body>
+    <noscript><strong>We're sorry but demo doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
+    <div id="app"></div>
+  </body>
+</html>
