@@ -31,10 +31,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# 自定义用户模型
+AUTH_USER_MODEL = 'management.ParkingSystemUser'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'management',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
