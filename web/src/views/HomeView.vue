@@ -114,7 +114,8 @@ h1 {
 
 .main {
   background-color: #ffffff;
-  height: 400px;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }
 </style>

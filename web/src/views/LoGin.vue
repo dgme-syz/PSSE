@@ -36,6 +36,9 @@
 <script>
 
 import axios from 'axios';
+import { h } from 'vue'
+import { ElNotification } from 'element-plus'
+
 
 export default {
     data: function() {
@@ -55,7 +58,7 @@ export default {
                 password: this.pwd
             };
 
-            axios.post('login/',  formData, {
+            axios.post('/api/login/',  formData, {
                 headers : {
                     'Content-Type': 'application/json'
                 }
@@ -63,6 +66,10 @@ export default {
                 .then((response) => {
                     if (response.data.success) {
                         this.$store.commit('setloggedIn', true);
+                        ElNotification({
+                            title: '提示',
+                            message: h('i', { style: 'color: teal' }, '登录成功^_^'),
+                        })
                         this.$router.push('./home');
                     }
                 })
@@ -70,6 +77,11 @@ export default {
                     if(this.$store.state.loggedIn)
                         console.log('yes');
                     else console.log('no');
+                    // ElNotification({
+                    //     title: '提示',
+                    //     message: h('i', { style: 'color: teal' }, '登录成功^_^'),
+                    // })
+                    this.$router.push('./home');
                     console.log(formData.name);
                     console.log(formData.password);
                     console.error(error);

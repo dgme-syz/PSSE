@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 const store = createStore({
   state: {
-    loggedIn: false,
+    loggedIn: true,// 注意初始化默认值
   },
   getters: {
     getVariable(state) {
