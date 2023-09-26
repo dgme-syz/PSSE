@@ -39,7 +39,30 @@ def user_login(request):
 
 def home_view(request):
     return render(request, 'dist/index.html')
-
+    
+# 便于简单配置上传图片
+@csrf_exempt 
+def pic_solve(request):
+    if request.method == 'POST':
+        # 接收上传的图片文件
+        file = request.FILES.get('file')
+        
+        # 使用 Pillow 库打开图片文件
+        image = Image.open(file)
+        # image.show()
+        
+        # 在这里进行你的图像处理逻辑
+        # ...
+        
+        # 返回处理后的信息
+        response_data = {
+            'message': '图片处理成功',
+            # 添加其他需要返回的信息
+        }
+        return JsonResponse(response_data)
+    
+    # 如果不是 POST 请求，返回 400 错误
+    return JsonResponse({'error': '只支持 POST 请求'}, status=400)
 
 @csrf_exempt
 def send_verification_code(request):
