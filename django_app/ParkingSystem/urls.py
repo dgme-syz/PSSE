@@ -22,7 +22,8 @@ urlpatterns = [
     path('home/api/park_car/', views.park_car, name='park_car'),
     path('home/api/delete_car/', views.delete_car, name='delete_car'),
     path('home/api/reset_parking_duration/', views.reset_parking_duration, name='reset_parking_duration'),
-    path('home/api/update_parking_price/', views.update_parking_price, name='update_parking_price')
-
+    path('home/api/update_parking_price/', views.update_parking_price, name='update_parking_price'),
+    path('home/api/query_parking_recode_by_data/', views.query_parking_recode_by_data, name='query_parking_recode_by_data'),
+    path('home/api/get_parking_spots/', views.get_parking_spots, name='get_parking_spots'),
 ]
     

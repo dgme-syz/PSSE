@@ -14,8 +14,13 @@ class ParkingRecord(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-
+    license_plate = models.CharField(max_length=10)
 
 class ParkingRate(models.Model):
     car_type = models.CharField(max_length=255,)
     price_per_hour = models.DecimalField(max_digits=10, decimal_places=2)
+
+class GlobalSettings(models.Model):
+    parking_spots = models.PositiveIntegerField()
+    origin_parking_spots = models.PositiveIntegerField()
+

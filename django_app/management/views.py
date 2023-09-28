@@ -56,7 +56,7 @@ def pic_solve(request):
 
 @csrf_exempt
 def send_verification_code(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         data = json.loads(request.body.decode('utf-8'))
         email = data.get('email')
 
@@ -79,7 +79,7 @@ def send_verification_code(request):
         # 返回响应
         return JsonResponse({'success': True, "message": "验证码发送成功"})
 
-    return JsonResponse({'success': False, 'error': '仅支持 POST 请求'})
+    return JsonResponse({'success': False, 'error': '仅支持 GET 请求'})
 
 @csrf_exempt
 def register(request):

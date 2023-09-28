@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.utils import timezone
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Car, ParkingRecord, ParkingRate
+from .models import Car, ParkingRecord, ParkingRate, GlobalSettings
 from management.permissions import is_admin
 import math
 import json
@@ -81,7 +81,10 @@ def park_car(request):
         # 如果车辆已停车，且停车时间不为空，则不允许再次停车
         if existing_car.parked_at:
             return JsonResponse({'success': False, 'error': '车辆已经停车'}, status=400)
-
+        global_settings = GlobalSettings.objects.first()
+        if global_settings:
+            global_settings.parking_spots -= 1
+            global_settings.save()
         existing_car.parked_at = timezone.now()  # 更新停车时间
         existing_car.save()
         return JsonResponse({'success': True, 'message': '车辆已停车'}, status=200)
@@ -132,10 +135,14 @@ def reset_parking_duration(request):
             parking_duration = calculate_parking_duration(start_time, end_time)
             parking_duration = round(parking_duration,2)
             parking_price = calculate_parking_price(parking_duration, car_to_reset.car_type)
+            global_settings = GlobalSettings.objects.first()
+            if global_settings:
+                global_settings.parking_spots += 1
+                global_settings.save()
             car_to_reset.parked_at = None
             car_to_reset.save()
 
-            parking_record = ParkingRecord(car=car_to_reset, start_time=start_time, end_time=end_time, price=parking_price)
+            parking_record = ParkingRecord(car=car_to_reset, start_time=start_time, end_time=end_time, price=parking_price,license_plate=license_plate)
             parking_record.save()
 
             return JsonResponse({'success': True, 'message': '停车时长已重置', 'parking_duration_minutes': parking_duration,
@@ -174,3 +181,81 @@ def update_parking_price(request):
             'message': '只允许POST请求'
         }
         return JsonResponse(response_data, status=400)
+from datetime import date, datetime
+from django.db.models import Sum
+
+@csrf_exempt
+def query_parking_recode_by_data(request):
+    '''
+    input:
+        {
+        "start_date": "2023-09-01",
+        "end_date": "2023-09-30"
+        }
+    output:
+    {
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "car_id": 2,
+            "start_time": "2023-09-28T16:16:48.686Z",
+            "end_time": "2023-09-28T16:16:51.319Z",
+            "price": "6.00",
+            "license_plate": "苏1234567"
+        },
+        {
+            "id": 2,
+            "car_id": 2,
+            "start_time": "2023-09-28T16:16:52.559Z",
+            "end_time": "2023-09-28T16:16:53.717Z",
+            "price": "6.00",
+            "license_plate": "苏1234567"
+        }
+    ],
+    "number_of_records": 2,
+    "total_cost": "12"}
+    '''
+    if request.method == 'POST':
+        # 获取查询参数
+        data = json.loads(request.body.decode('utf-8'))
+        start_date_str = data.get('start_date')
+        end_date_str = data.get('end_date')
+        
+        # 将日期字符串转换为日期对象
+        start_date = date.fromisoformat(start_date_str)
+        end_date = date.fromisoformat(end_date_str)
+        
+        # 获取查询日期的开始时间（当天的最早时刻）
+        start_datetime = datetime.combine(start_date, datetime.min.time())
+        
+        # 获取查询日期的结束时间（当天的最晚时刻）
+        end_datetime = datetime.combine(end_date, datetime.max.time())
+        
+        # 为查询日期的开始时间和结束时间添加时区信息
+        start_datetime_with_tz = timezone.make_aware(start_datetime, timezone.get_current_timezone())
+        end_datetime_with_tz = timezone.make_aware(end_datetime, timezone.get_current_timezone())
+        
+        # 查询匹配日期范围的停车记录
+        parking_records = ParkingRecord.objects.filter(
+            start_time__range=(start_datetime_with_tz, end_datetime_with_tz),
+            end_time__range=(start_datetime_with_tz, end_datetime_with_tz)
+        )
+        
+        total_cost = parking_records.aggregate(Sum('price'))['price__sum']
+        
+        # 在视图中处理查询到的停车记录，例如将它们传递给模板进行渲染
+        return JsonResponse({
+            'success': True,
+            'data': list(parking_records.values()),
+            'number_of_records': parking_records.count(),
+            'total_cost': total_cost
+        }, safe=False)
+
+    return JsonResponse({'success': False, 'error': '只允许POST请求'}, status=400)
+
+@csrf_exempt
+def get_parking_spots(request):
+    if request.method == 'GET':
+        return JsonResponse({'success': True,'number':GlobalSettings.objects.first().parking_spots,'orgin_number':GlobalSettings.objects.first().origin_parking_spots})
+    return JsonResponse({'success': False, 'error': '只允许GET请求'}, status=400)
