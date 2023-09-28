@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('management.urls')),  # 包括应用程序级别的URL配置
+    path('', include('ParkingSystem.urls')),  # 包括应用程序级别的URL配置
     path('accounts/', include('django.contrib.auth.urls')),  # 包括Django内置的用户认证URL配置
 ]

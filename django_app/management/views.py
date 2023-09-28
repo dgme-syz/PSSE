@@ -5,26 +5,16 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
-from .models import VerificationCode
+from .models import VerificationCode, ParkingSystemUser
+from PIL import Image
 
 
-# def register(request):
-#     if request.method == 'POST':
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             login(request, user)
-#             return redirect('home')
-#     else:
-#         form = UserCreationForm()
-#     return render(request, 'registration/register.html', {'form': form})
-#
 @csrf_exempt
 def user_login(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
         print(data)
-        username = data.get('name')
+        username = data.get('username')
         password = data.get('password')
         print(username)
         user = authenticate(request, username=username, password=password)
@@ -62,7 +52,7 @@ def pic_solve(request):
         return JsonResponse(response_data)
     
     # 如果不是 POST 请求，返回 400 错误
-    return JsonResponse({'error': '只支持 POST 请求'}, status=400)
+    return JsonResponse({'success': False,'error': '只支持 POST 请求'}, status=400)
 
 @csrf_exempt
 def send_verification_code(request):
@@ -83,15 +73,15 @@ def send_verification_code(request):
         recipient_list = [email]  # 收件人邮箱
 
         # 发送邮件
-        send_mail(subject, message, from_email,
-                  recipient_list, fail_silently=False)
+        # send_mail(subject, message, from_email,
+        #           recipient_list, fail_silently=False)
 
         # 返回响应
-        return JsonResponse({'success': True})
+        return JsonResponse({'success': True, "message": "验证码发送成功"})
 
     return JsonResponse({'success': False, 'error': '仅支持 POST 请求'})
 
-
+@csrf_exempt
 def register(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
@@ -101,7 +91,7 @@ def register(request):
 
         # 在生成验证码之前查询数据库，检查用户是否已注册
         from django.contrib.auth.models import User
-        user_exists = User.objects.filter(email=email).exists()
+        user_exists = ParkingSystemUser.objects.filter(email=email).exists()
         if user_exists:
             return JsonResponse({'success': False, 'error': '该邮箱已注册'})
 
@@ -126,8 +116,7 @@ def register(request):
             return JsonResponse({'success': False, 'error': '验证码不正确'})
 
         # 保存用户密码到数据库（示例中使用了Django内置的User模型）
-        from django.contrib.auth.models import User
-        user = User(username=email, email=email)
+        user = ParkingSystemUser(username=email, email=email)
         user.set_password(password)
         user.save()
 
@@ -165,8 +154,8 @@ def change_email(request):
                 verification_code.delete()  # 验证通过后删除验证码
                 user.email = new_email
                 user.save()
-                return JsonResponse({'message': '邮箱已成功修改。'})
-    return JsonResponse({'error': '仅支持 POST 请求'})
+                return JsonResponse({'success': False, 'message': '邮箱已成功修改。'})
+    return JsonResponse({'success': False, 'error': '仅支持 POST 请求'})
 
 
 @login_required

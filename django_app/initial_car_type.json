@@ -1,0 +1,26 @@
+[
+    {
+        "model": "ParkingSystem.ParkingRate",
+        "pk": 1,
+        "fields": {
+            "car_type": "小型车",
+            "price_per_hour": 5.00
+        }
+    },
+    {
+        "model": "ParkingSystem.ParkingRate",
+        "pk": 2,
+        "fields": {
+            "car_type": "中型车",
+            "price_per_hour": 7.00
+        }
+    },
+    {
+        "model": "ParkingSystem.ParkingRate",
+        "pk": 3,
+        "fields": {
+            "car_type": "大型车",
+            "price_per_hour": 10.00
+        }
+    }
+]

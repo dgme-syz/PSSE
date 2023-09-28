@@ -1,5 +1,8 @@
 /web/node_modules
 /django_app/django_app/__pycache__
 /django_app/management/__pycache__
+/django_app/management/migrations/__pycache__
+/django_app/ParkingSystem/__pycache__
+/django_app/ParkingSystem/migrations/__pycache__
 /django_app/db.sqlite3
 /web/dist

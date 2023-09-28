@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.utils import timezone
 from django.utils.crypto import get_random_string
 
-
 # Registration Code Model
 class VerificationCode(models.Model):
     code = models.CharField(max_length=6)
@@ -16,9 +15,10 @@ class VerificationCode(models.Model):
         verification_code, created = cls.objects.get_or_create(email=email)
         verification_code.code = code
         verification_code.save()
+        print(verification_code.code)
         return code
 
-# User Model and Car Model
+# User Model
 class ParkingSystemUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -33,14 +33,14 @@ class ParkingSystemUserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
 
         if extra_fields.get('is_superuser') is not True:
-            raise ValueError(_('Superuser must have is_superuser=True.'))
+            raise ValueError(('Superuser must have is_superuser=True.'))
 
         return self.create_user(email, password, **extra_fields)
 
 class ParkingSystemUser(AbstractBaseUser):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=255)
-    cars = models.ManyToManyField('Car', blank=True)
+    cars = models.ManyToManyField('ParkingSystem.Car', blank=True)
 
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
@@ -53,10 +53,3 @@ class ParkingSystemUser(AbstractBaseUser):
     def __str__(self):
         return self.email
 
-class Car(models.Model):
-    license_plate = models.CharField(max_length=10, unique=True)
-    make = models.CharField(max_length=100)
-    model = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.license_plate

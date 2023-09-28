@@ -19,8 +19,10 @@ from . import views
 
 urlpatterns = [
     path('home/api/login/', views.user_login, name='login'),
+    path('home/api/register/', views.register, name='register'),
     path('home/api/pic/', views.pic_solve, name='pic'),
     path('home/', views.home_view, name='home'),
-    path('api/send_verification_code/', views.send_verification_code, name='send_verification_code'),
-
+    path('home/api/send_verification_code/', views.send_verification_code, name='send_verification_code'),
+    path('home/api/change_password/', views.change_password, name='change_password'),
+    path('home/api/change_email/', views.change_email, name='change_email')
 ]
