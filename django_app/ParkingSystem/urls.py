@@ -18,12 +18,15 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    # path('home/api/recognize_license_plate/', views.recognize_license_plate, name='recognize_license_plate'),
     path('home/api/add_car/', views.add_car, name='add_car'),
     path('home/api/park_car/', views.park_car, name='park_car'),
     path('home/api/delete_car/', views.delete_car, name='delete_car'),
     path('home/api/reset_parking_duration/', views.reset_parking_duration, name='reset_parking_duration'),
     path('home/api/update_parking_price/', views.update_parking_price, name='update_parking_price'),
-    path('home/api/query_parking_recode_by_data/', views.query_parking_recode_by_data, name='query_parking_recode_by_data'),
+    path('home/api/query_parking_record_by_date/', views.query_parking_record_by_date, name='query_parking_record_by_date'),
     path('home/api/get_parking_spots/', views.get_parking_spots, name='get_parking_spots'),
+    path('home/api/get_csrf_token/', views.get_csrf_token, name='get_csrf_token'),
+    path('home/api/get_csrf_token/', views.get_csrf_token, name='get_csrf_token'),
 ]
     

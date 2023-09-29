@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.core.mail import send_mail
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from .models import VerificationCode, ParkingSystemUser
 from PIL import Image
 
@@ -55,6 +55,7 @@ def pic_solve(request):
     return JsonResponse({'success': False,'error': '只支持 POST 请求'}, status=400)
 
 @csrf_exempt
+# @csrf_protect
 def send_verification_code(request):
     if request.method == 'GET':
         data = json.loads(request.body.decode('utf-8'))

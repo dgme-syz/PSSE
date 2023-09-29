@@ -4,5 +4,8 @@
 /django_app/management/migrations/__pycache__
 /django_app/ParkingSystem/__pycache__
 /django_app/ParkingSystem/migrations/__pycache__
+/django_app/ParkingSystem/Licence_Recognition/__pycache__
+/django_app/ParkingSystem/Licence_Recognition/models/__pycache__
+/django_app/ParkingSystem/Licence_Recognition/utils/__pycache__
 /django_app/db.sqlite3
 /web/dist

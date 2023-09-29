@@ -1,13 +1,24 @@
-from django.contrib.auth.decorators import login_required, user_passes_test
 from django.utils import timezone
-from django.http import JsonResponse
+from django.middleware.csrf import get_token
 from django.views.decorators.csrf import csrf_exempt
 from .models import Car, ParkingRecord, ParkingRate, GlobalSettings
-from management.permissions import is_admin
+from rest_framework import status
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from .serializers import *
+from datetime import date, datetime
+from django.db.models import Sum
+from .Licence_Recognition.detect import predict_api
 import math
 import json
-# Create your views here.
 
+# Create your views here.
+@csrf_exempt
+@api_view(['GET'])
+def get_csrf_token(request):
+    csrf_token = get_token(request)
+    return Response({'success': True, 'csrf_token': csrf_token})
 def calculate_parking_duration(start_time, end_time):
     # 计算停车时间（以分钟为单位）
     if start_time and end_time:
@@ -33,229 +44,241 @@ def calculate_parking_price(parking_duration_minutes, car_type):
 
 
 
-@login_required
-@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def add_car(request):
-    if request.method == 'POST':
-        data = json.loads(request.body.decode('utf-8'))
-        car_type = data.get('car_type')
-        user = request.user
+    user = request.user
+
+    # 将请求体内容保存在变量中
+    request_data=request.data
+    print(request_data)
+    serializer = AddCarSerializer(data=request_data)
+    
+    if serializer.is_valid():
+        data = serializer.validated_data
+        car_type = request_data.get('car_type')
+        license_plate = request_data.get('license_plate')
+        print(license_plate)
+        
         if not user:
-            return JsonResponse({'success': False, 'error': '用户未登录'}, status=401)
+            return Response({'success': False, 'error': '用户未登录'}, status=status.HTTP_401_UNAUTHORIZED)
 
-        license_plate = data.get('license_plate')
         existing_car = Car.objects.filter(license_plate=license_plate).first()
+        
         if existing_car:
-            return JsonResponse({'success': True, 'message': '车辆已存在'}, status=200)
+            return Response({'success': True, 'message': '车辆已存在'}, status=status.HTTP_200_OK)
 
-        park = data.get('park', False)
-        if park:
-            parked_at = timezone.now()
-        else:
-            parked_at = None
-        # 创建车辆并设置停车时间为空
-        car = Car.objects.create(license_plate=license_plate, parked_at=parked_at,car_type=car_type)
+
+        # 创建车辆并设置停车时间
+        car = Car.objects.create(license_plate=license_plate, parked_at=None, car_type=car_type)
 
         # 将车辆与用户关联
         user.cars.add(car)
 
-        return JsonResponse({'success': True, 'message': '车辆已添加'}, status=201)
+        return Response({'success': True, 'message': '车辆已添加'}, status=status.HTTP_201_CREATED)
     else:
-        return JsonResponse({'success': False, 'error': '只允许POST请求'}, status=400)
-    
-@login_required
+        return Response({'success': False, 'error': '数据验证失败'}, status=status.HTTP_400_BAD_REQUEST)
+
 @csrf_exempt
+@api_view(['POST'])
 def park_car(request):
-    if request.method == 'POST':
-        data = json.loads(request.body.decode('utf-8'))
-        user = request.user
-        if not user:
-            return JsonResponse({'success': False, 'error': '用户未登录'}, status=401)
-
-        license_plate = data.get('license_plate')
+    try:
+        request_data=request.data
+        print(request_data)
+    except json.JSONDecodeError:
+        return Response({'success': False, 'error': '无效的JSON数据'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    serializer = ParkCarSerializer(data=request_data)
+    
+    if serializer.is_valid():
+        # 以下部分不需要再访问 request.body
+        request_data = serializer.validated_data
+        license_plate = request_data.get('license_plate')
         existing_car = Car.objects.filter(license_plate=license_plate).first()
-
+        
         if not existing_car:
-            return JsonResponse({'success': False, 'error': '车辆不存在'}, status=404)
+            return Response({'success': False, 'error': '车辆不存在'}, status=status.HTTP_404_NOT_FOUND)
 
-        # 如果车辆已停车，且停车时间不为空，则不允许再次停车
         if existing_car.parked_at:
-            return JsonResponse({'success': False, 'error': '车辆已经停车'}, status=400)
+            return Response({'success': False, 'error': '车辆已经停车'}, status=status.HTTP_400_BAD_REQUEST)
+
         global_settings = GlobalSettings.objects.first()
+
         if global_settings:
             global_settings.parking_spots -= 1
             global_settings.save()
-        existing_car.parked_at = timezone.now()  # 更新停车时间
+
+        existing_car.parked_at = timezone.now()
         existing_car.save()
-        return JsonResponse({'success': True, 'message': '车辆已停车'}, status=200)
+        return Response({'success': True, 'message': '车辆已停车'}, status=status.HTTP_200_OK)
     else:
-        return JsonResponse({'success': False, 'error': '只允许POST请求'}, status=400)
-    
+        return Response({'success': False, 'error': '数据验证失败'}, status=status.HTTP_400_BAD_REQUEST)
 
-@login_required
-@csrf_exempt
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])  # 只有认证用户可以访问此视图
 def delete_car(request):
-    if request.method == 'DELETE':
-        data = json.loads(request.body.decode('utf-8'))
-        user = request.user
-        if not user:
-            return JsonResponse({'success': False, 'error': '用户未登录'}, status=401)
+    data=request.data
 
+    serializer = DeleteCarSerializer(data = data)
+    
+    if serializer.is_valid():
+        data = serializer.validated_data
+        print(data)
         license_plate = data.get('license_plate')
         car_to_remove = Car.objects.filter(license_plate=license_plate).first()
-
+        
         if car_to_remove:
             if car_to_remove.parked_at:
-                return JsonResponse({'success': False, 'error': '车辆还没出库'}, status=400)
+                return Response({'success': False, 'error': '车辆还没出库'}, status=status.HTTP_400_BAD_REQUEST)
             else:
-                user.cars.remove(car_to_remove)
+                request.user.cars.remove(car_to_remove)
                 car_to_remove.delete()
-                return JsonResponse({'success': True, 'message': '车辆已删除'}, status=200)
+                return Response({'success': True, 'message': '车辆已删除'}, status=status.HTTP_200_OK)
         else:    
-            return JsonResponse({'success': False, 'error': '车辆不存在'}, status=404)
+            return Response({'success': False, 'error': '车辆不存在'}, status=status.HTTP_404_NOT_FOUND)
     else:
-        return JsonResponse({'success': False, 'error': '只允许DELETE'}, status=400)
+        return Response({'success': False, 'error': '数据验证失败'}, status=status.HTTP_400_BAD_REQUEST)
     
 
-@login_required
-@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])  # 只有认证用户可以访问此视图
 def reset_parking_duration(request):
-    if request.method == 'POST':
-        data = json.loads(request.body.decode('utf-8'))
-        user = request.user
-        if not user:
-            return JsonResponse({'success': False, 'error': '用户未登录'}, status=401)
-
+    data=request.data
+    serializer = ResetParkingDurationSerializer(data=data)
+    
+    if serializer.is_valid():
+        data = serializer.validated_data
         license_plate = data.get('license_plate')
         car_to_reset = Car.objects.filter(license_plate=license_plate).first()
-
+        
         if car_to_reset:
             start_time = car_to_reset.parked_at
-            end_time = timezone.now()  # 使用带有时区信息的当前时间
+            end_time = timezone.now()
             parking_duration = calculate_parking_duration(start_time, end_time)
-            parking_duration = round(parking_duration,2)
+            parking_duration = round(parking_duration, 2)
             parking_price = calculate_parking_price(parking_duration, car_to_reset.car_type)
+            
             global_settings = GlobalSettings.objects.first()
+            
             if global_settings:
                 global_settings.parking_spots += 1
                 global_settings.save()
+            
             car_to_reset.parked_at = None
             car_to_reset.save()
-
-            parking_record = ParkingRecord(car=car_to_reset, start_time=start_time, end_time=end_time, price=parking_price,license_plate=license_plate)
+            
+            parking_record = ParkingRecord(car=car_to_reset, start_time=start_time, end_time=end_time, price=parking_price, license_plate=license_plate)
             parking_record.save()
-
-            return JsonResponse({'success': True, 'message': '停车时长已重置', 'parking_duration_minutes': parking_duration,
-                'parking_price': parking_price}, status=201)
+            
+            return Response({'success': True, 'message': '停车时长已重置', 'parking_duration_minutes': parking_duration,
+                             'parking_price': parking_price}, status=status.HTTP_201_CREATED)
         else:
-            return JsonResponse({'success': False, 'error': '车辆不存在'}, status=404)
+            return Response({'success': False, 'error': '车辆不存在'}, status=status.HTTP_404_NOT_FOUND)
     else:
-        return JsonResponse({'success': False,'error': '只允许POST请求'}, status=400)
+        return Response({'success': False, 'error': '数据验证失败'}, status=status.HTTP_400_BAD_REQUEST)
 # @login_required
-@user_passes_test(is_admin)
-@csrf_exempt
+
+@api_view(['POST'])
 def update_parking_price(request):
-    if request.method == 'POST':
-        data = json.loads(request.body.decode('utf-8'))
-        car_type = data.get('car_type')
-        new_price = float(data.get('new_price'))
-        try:
-            parking_rate = ParkingRate.objects.get(car_type=car_type)
-            parking_rate.price_per_hour = new_price
-            parking_rate.save()
-            response_data = {
-                'success': True,
-                'message': '停车价格已更新'
-            }
-        except ParkingRate.DoesNotExist:
-            response_data = {
-                'success': False,
-                'message': '车型不存在'
-            }
+    if not request.user.is_superuser:  # 假设你的用户模型有一个 is_admin 字段来表示管理员状态
+        return Response({'success': False, 'message': '只有管理员可以访问此视图'}, status=status.HTTP_403_FORBIDDEN)
+    data = json.loads(request.body.decode('utf-8'))
+    car_type = data.get('car_type')
+    new_price = float(data.get('new_price'))
+    
+    try:
+        parking_rate = ParkingRate.objects.get(car_type=car_type)
+        parking_rate.price_per_hour = new_price
+        parking_rate.save()
         
-        return JsonResponse(response_data)
-    else:
-        # 处理非POST请求的情况
+        # 使用序列化器将响应数据序列化为JSON格式
+        serializer = ParkingRateSerializer(parking_rate)
+        
+        response_data = {
+            'success': True,
+            'message': '停车价格已更新',
+            'data': serializer.data
+        }
+        return Response(response_data, status=status.HTTP_200_OK)
+    except ParkingRate.DoesNotExist:
         response_data = {
             'success': False,
-            'message': '只允许POST请求'
+            'message': '车型不存在'
         }
-        return JsonResponse(response_data, status=400)
-from datetime import date, datetime
-from django.db.models import Sum
+        return Response(response_data, status=status.HTTP_404_NOT_FOUND)
 
-@csrf_exempt
-def query_parking_recode_by_data(request):
-    '''
-    input:
-        {
-        "start_date": "2023-09-01",
-        "end_date": "2023-09-30"
-        }
-    output:
-    {
-    "success": true,
-    "data": [
-        {
-            "id": 1,
-            "car_id": 2,
-            "start_time": "2023-09-28T16:16:48.686Z",
-            "end_time": "2023-09-28T16:16:51.319Z",
-            "price": "6.00",
-            "license_plate": "苏1234567"
-        },
-        {
-            "id": 2,
-            "car_id": 2,
-            "start_time": "2023-09-28T16:16:52.559Z",
-            "end_time": "2023-09-28T16:16:53.717Z",
-            "price": "6.00",
-            "license_plate": "苏1234567"
-        }
-    ],
-    "number_of_records": 2,
-    "total_cost": "12"}
-    '''
-    if request.method == 'POST':
+
+@api_view(['GET'])
+def query_parking_record_by_date(request):
+    """
+    import requests
+
+    url = 'http://127.0.0.1/home/api/query_parking_record_by_date/'
+    params = {
+        'start_date': '2023-09-01',
+        'end_date': '2023-09-30'
+    }
+
+    response = requests.get(url, params=params)
+
+    if response.status_code == 200:
+        data = response.json()
+        # 处理响应数据
+    else:
+        print(f"请求失败，状态码: {response.status_code}")
+    """
+    try:
         # 获取查询参数
-        data = json.loads(request.body.decode('utf-8'))
-        start_date_str = data.get('start_date')
-        end_date_str = data.get('end_date')
-        
+        start_date_str = request.query_params.get('start_date')
+        end_date_str = request.query_params.get('end_date')
+
         # 将日期字符串转换为日期对象
         start_date = date.fromisoformat(start_date_str)
         end_date = date.fromisoformat(end_date_str)
-        
+
         # 获取查询日期的开始时间（当天的最早时刻）
         start_datetime = datetime.combine(start_date, datetime.min.time())
-        
+
         # 获取查询日期的结束时间（当天的最晚时刻）
         end_datetime = datetime.combine(end_date, datetime.max.time())
-        
+
         # 为查询日期的开始时间和结束时间添加时区信息
         start_datetime_with_tz = timezone.make_aware(start_datetime, timezone.get_current_timezone())
         end_datetime_with_tz = timezone.make_aware(end_datetime, timezone.get_current_timezone())
-        
+
         # 查询匹配日期范围的停车记录
         parking_records = ParkingRecord.objects.filter(
             start_time__range=(start_datetime_with_tz, end_datetime_with_tz),
             end_time__range=(start_datetime_with_tz, end_datetime_with_tz)
         )
-        
+
         total_cost = parking_records.aggregate(Sum('price'))['price__sum']
-        
-        # 在视图中处理查询到的停车记录，例如将它们传递给模板进行渲染
-        return JsonResponse({
+
+        # 使用序列化器将查询到的停车记录序列化为JSON格式
+        serializer = ParkingRecordSerializer(parking_records, many=True)
+
+        return Response({
             'success': True,
-            'data': list(parking_records.values()),
+            'data': serializer.data,
             'number_of_records': parking_records.count(),
-            'total_cost': total_cost
-        }, safe=False)
+            'total_cost': str(total_cost)
+        })
+    except Exception as e:
+        return Response({'success': False, 'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-    return JsonResponse({'success': False, 'error': '只允许POST请求'}, status=400)
 
-@csrf_exempt
+
+@api_view(['GET'])
 def get_parking_spots(request):
-    if request.method == 'GET':
-        return JsonResponse({'success': True,'number':GlobalSettings.objects.first().parking_spots,'orgin_number':GlobalSettings.objects.first().origin_parking_spots})
-    return JsonResponse({'success': False, 'error': '只允许GET请求'}, status=400)
+    global_settings = GlobalSettings.objects.first()
+    serializer = GlobalSettingsSerializer({
+        'number': global_settings.parking_spots,
+        'origin_number': global_settings.origin_parking_spots,
+    })
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def get_plate_number(request):
+
+    predict_api()
+
