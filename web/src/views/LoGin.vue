@@ -58,6 +58,9 @@ export default {
                 password: this.pwd
             };
 
+            const csrfToken = "{{ csrf_token }}";
+            axios.defaults.headers.common['X-CSRFToken'] = csrfToken;
+            
             axios.post('/api/login/',  formData, {
                 headers : {
                     'Content-Type': 'application/json'
