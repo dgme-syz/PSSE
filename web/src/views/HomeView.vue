@@ -107,7 +107,7 @@ h1 {
 
 .aside {
   background-color: #ffffff;
-  height: 800px;
+  height: auto;
 
   border-right: 1px solid #ccc;
 }
@@ -115,7 +115,8 @@ h1 {
 .main {
   background-color: #ffffff;
   display: flex;
-  justify-content: center;
-  height: 100%;
+  justify-content: flex-start;
+  width: 1400px;
+  height: auto;
 }
 </style>
