@@ -13,11 +13,10 @@ from PIL import Image
 def user_login(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
-        print(data)
-        username = data.get('username')
+        email = data.get('email')
         password = data.get('password')
-        print(username)
-        user = authenticate(request, username=username, password=password)
+        print(email)
+        user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request, user)
             return JsonResponse({'success': True, 'message': '登录成功'})
@@ -87,6 +86,7 @@ def register(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
         email = data.get('email')
+        username = data.get('username')
         password = data.get('password')
         entered_code = data.get('code')
 
@@ -117,7 +117,7 @@ def register(request):
             return JsonResponse({'success': False, 'error': '验证码不正确'})
 
         # 保存用户密码到数据库（示例中使用了Django内置的User模型）
-        user = ParkingSystemUser(username=email, email=email)
+        user = ParkingSystemUser(username=username,email=email)
         user.set_password(password)
         user.save()
 

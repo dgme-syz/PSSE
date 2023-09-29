@@ -24,7 +24,8 @@ class DeleteCarSerializer(serializers.Serializer):
 
 class ParkCarSerializer(serializers.Serializer):
     license_plate = serializers.CharField(max_length=10)
-
+    def is_valid():
+        return True
 class AddCarSerializer(serializers.Serializer):
     class Meta:
         model = Car

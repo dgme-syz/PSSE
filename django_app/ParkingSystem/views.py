@@ -55,14 +55,11 @@ def add_car(request):
     serializer = AddCarSerializer(data=request_data)
     
     if serializer.is_valid():
-        data = serializer.validated_data
+        request_data = serializer.validated_data
         car_type = request_data.get('car_type')
         license_plate = request_data.get('license_plate')
         print(license_plate)
         
-        if not user:
-            return Response({'success': False, 'error': '用户未登录'}, status=status.HTTP_401_UNAUTHORIZED)
-
         existing_car = Car.objects.filter(license_plate=license_plate).first()
         
         if existing_car:
@@ -82,27 +79,26 @@ def add_car(request):
 @csrf_exempt
 @api_view(['POST'])
 def park_car(request):
-    try:
-        request_data=request.data
-        print(request_data)
-    except json.JSONDecodeError:
-        return Response({'success': False, 'error': '无效的JSON数据'}, status=status.HTTP_400_BAD_REQUEST)
+    request_data=request.data
+    print(request_data)
     
     serializer = ParkCarSerializer(data=request_data)
     
     if serializer.is_valid():
-        # 以下部分不需要再访问 request.body
         request_data = serializer.validated_data
         license_plate = request_data.get('license_plate')
         existing_car = Car.objects.filter(license_plate=license_plate).first()
         
         if not existing_car:
-            return Response({'success': False, 'error': '车辆不存在'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'success': False, 'error': '车辆不存在'}, status=status.HTTP_201_CREATED)
 
         if existing_car.parked_at:
             return Response({'success': False, 'error': '车辆已经停车'}, status=status.HTTP_400_BAD_REQUEST)
 
         global_settings = GlobalSettings.objects.first()
+
+        if global_settings.parking_spots <= 0:
+            return Response({'success': False, 'error': '停车场已满'}, status=status.HTTP_400_BAD_REQUEST)
 
         if global_settings:
             global_settings.parking_spots -= 1
@@ -129,7 +125,7 @@ def delete_car(request):
         
         if car_to_remove:
             if car_to_remove.parked_at:
-                return Response({'success': False, 'error': '车辆还没出库'}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({'success': False, 'error': '车辆还没出库'}, status=status.HTTP_201_CREATED)
             else:
                 request.user.cars.remove(car_to_remove)
                 car_to_remove.delete()
@@ -170,19 +166,19 @@ def reset_parking_duration(request):
             parking_record = ParkingRecord(car=car_to_reset, start_time=start_time, end_time=end_time, price=parking_price, license_plate=license_plate)
             parking_record.save()
             
-            return Response({'success': True, 'message': '停车时长已重置', 'parking_duration_minutes': parking_duration,
-                             'parking_price': parking_price}, status=status.HTTP_201_CREATED)
+            return Response({'success': True, 'message': '取车成功', 'parking_duration_minutes': parking_duration,
+                             'parking_price': parking_price}, status=status.HTTP_200_OK)
         else:
-            return Response({'success': False, 'error': '车辆不存在'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'success': False, 'error': '车辆不存在或者尚未停车'}, status=status.HTTP_404_NOT_FOUND)
     else:
         return Response({'success': False, 'error': '数据验证失败'}, status=status.HTTP_400_BAD_REQUEST)
 # @login_required
 
 @api_view(['POST'])
 def update_parking_price(request):
-    if not request.user.is_superuser:  # 假设你的用户模型有一个 is_admin 字段来表示管理员状态
+    if not request.user.is_staff:  # 假设你的用户模型有一个 is_staff 字段来表示管理员状态
         return Response({'success': False, 'message': '只有管理员可以访问此视图'}, status=status.HTTP_403_FORBIDDEN)
-    data = json.loads(request.body.decode('utf-8'))
+    data=request.data
     car_type = data.get('car_type')
     new_price = float(data.get('new_price'))
     
@@ -210,23 +206,6 @@ def update_parking_price(request):
 
 @api_view(['GET'])
 def query_parking_record_by_date(request):
-    """
-    import requests
-
-    url = 'http://127.0.0.1/home/api/query_parking_record_by_date/'
-    params = {
-        'start_date': '2023-09-01',
-        'end_date': '2023-09-30'
-    }
-
-    response = requests.get(url, params=params)
-
-    if response.status_code == 200:
-        data = response.json()
-        # 处理响应数据
-    else:
-        print(f"请求失败，状态码: {response.status_code}")
-    """
     try:
         # 获取查询参数
         start_date_str = request.query_params.get('start_date')
@@ -261,8 +240,8 @@ def query_parking_record_by_date(request):
             'success': True,
             'data': serializer.data,
             'number_of_records': parking_records.count(),
-            'total_cost': str(total_cost)
-        })
+            'total_cost': total_cost
+        },status=status.HTTP_200_OK)
     except Exception as e:
         return Response({'success': False, 'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
