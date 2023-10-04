@@ -1,4 +1,33 @@
 <template>
+  <!-- 由于 content 单独存在，所以直接初始化所有样式 -->
+  <!-- 注意这里会带来的潜在问题 -->
+  <div style="all: initial;width: auto;">
+    <el-dialog v-model="visible" :show-close="false">
+      <template #header="{ close, titleId, titleClass }">
+        <div class="my-header" style="display:flex;justify-content:space-between;align-items: center;">
+          <h4 :id="titleId" :class="titleClass">步骤</h4>
+          <el-button type="danger" @click="close">
+            <el-icon class="el-icon--left"><CircleCloseFilled /></el-icon>
+            Close
+          </el-button>
+        </div>
+      </template>
+      <div style="align-items: center;display: flex;justify-content: center;">
+        <el-steps :active="num" style="width: fit-content;" >
+          <el-step title="Step 1" description="手动或者通过摄像头上传车辆图片" />
+          <el-step title="Step 2" description="点击Upload上传图片至服务端" />
+          <el-step title="Step 3" description="web接收服务器传来的结果，并更新数据" />
+          <el-step title="Step 4" description="success" />
+        </el-steps>
+      </div>
+      <div style="justify-content: flex-end;display: flex;">
+        <el-button type="primary" style="margin-right: 10px;margin-top: 30px;"  @click="safe_subtract">Prev</el-button>
+        <el-button type="primary" style="margin-right: 30px;margin-top: 30px;"  @click="safe_add">Next</el-button>
+      </div>
+    </el-dialog>
+  </div>
+
+
   <div id="pic">
       <el-card class="mainbox">
         <el-row class="row" :gutter="40">
@@ -29,14 +58,23 @@
             </el-card>
           </el-col>
         </el-row>
+        <div style="margin-top: 20px;">
+          <el-button type="primary">
+            Upload<el-icon class="el-icon-right1"><Upload /></el-icon>
+          </el-button>
+          <el-button type="primary" @click="updateask">Update</el-button>
+          <el-button type="primary" @click="visible = true">
+            help<el-icon><QuestionFilled /></el-icon>
+          </el-button>
+        </div>
       </el-card>
   </div>
   <div id="data">
 
-    <el-card class = "stats">
+    <el-card class = "stats" v-loading="loadenter">
       <div class="subdata">
         <el-col>
-          <el-statistic :value="38">
+          <el-statistic :value="this.$store.state.EmptyCarPostion">
             <template #title>
               <div style="display: inline-flex; align-items: center">
                 空车位
@@ -48,7 +86,7 @@
       </div>
       <div class="subdata">
         <el-col>
-          <el-statistic  :value="10" >
+          <el-statistic  :value="this.$store.state.BeforeOneHourIncome" >
           <template #title>
               <div style="display: inline-flex; align-items: center">
                 过去1h收入(元)
@@ -61,7 +99,7 @@
 
       <div class="subdata">
         <el-col>
-          <el-statistic  :value="1120" >
+          <el-statistic  :value="this.$store.state.BeforeOneDayIncome" >
           <template #title>
               <div style="display: inline-flex; align-items: center">
                 过去1天收入(元)
@@ -74,7 +112,7 @@
 
       <div class="subdata">
         <el-col>
-          <el-statistic  :value="199020" >
+          <el-statistic  :value="this.$store.state.BeforeOneMonthIncome" >
           <template #title>
               <div style="display: inline-flex; align-items: center">
                 过去1月收入(元)
@@ -94,16 +132,21 @@
 </template>
   
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent , h} from 'vue';
 import { UploadFilled } from '@element-plus/icons-vue';
-
+import { Upload } from '@element-plus/icons-vue'
+import { ElNotification } from 'element-plus';
 
 export default defineComponent({
   name: 'App',
 
   data() {
     return {
-      imageURL:null
+      imageURL: null,
+      Upload,
+      visible: false,
+      num: 1,
+      loadenter:false,
     }
   },
 
@@ -119,6 +162,35 @@ export default defineComponent({
       console.log(response);
       console.log('ok');
     },
+    safe_add(){
+      this.num = this.num + 1;
+      if(this.num > 4) this.num = 4; 
+    },
+    safe_subtract(){
+      if(this.num > 0) 
+        this.num = this.num - 1;
+    },
+    updateask() {
+      this.loadenter = true,
+      setTimeout(() => {
+          this.loadenter = false;
+          
+          // 模拟获取表单
+          var form = {
+            ECP : 12,
+            BOHI : 1122,
+            BODI : 1233,
+            BOMI : 114514, 
+          }
+
+          this.$store.commit("setIncomInfo",form);
+
+          ElNotification({
+              title: 'Tip',
+              message: h('i', {style:'color: teal'},'更新完毕')                
+          })
+      }, 2000);
+    }
   },
 });
 </script>
@@ -189,7 +261,7 @@ export default defineComponent({
   align-items: center;
 }
 
-/deep/ .upload-demo .el-upload-dragger {
+:deep() .upload-demo .el-upload-dragger {
   width: 100% !important;
   height: 220px !important;
 }
@@ -198,7 +270,7 @@ export default defineComponent({
   height: 30px;
   width: 300px;
   text-align: center;
-  background-color: #D2B4DE;
+  background-color: #FFC0CB;
   line-height: 30px;
 }
 
@@ -208,6 +280,12 @@ export default defineComponent({
 
 .stats {
   height: 450px;
+}
+
+.my-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 </style>

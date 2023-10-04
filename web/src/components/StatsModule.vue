@@ -13,10 +13,10 @@
             <TableOne/>
             </el-tab-pane>
             <el-tab-pane label="场内车辆" name="second">
-            
+            <TableTwo/>
             </el-tab-pane>
             <el-tab-pane label="停车记录" name="third">
-            
+            <TableThree/>
 
             </el-tab-pane>
         </el-tabs>
@@ -36,7 +36,8 @@ import { BarChart, LineChart } from 'echarts/charts';
 import { UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
 import TableOne from '../subcomponents/TableOne.vue'
-
+import TableThree from '../subcomponents/TableThree.vue'
+import TableTwo from '../subcomponents/TableTwo.vue'
 
 export default {
     methods: {
@@ -45,7 +46,9 @@ export default {
         },
     },
     components:{
-        TableOne
+        TableOne,
+        TableThree,
+        TableTwo
     },
     name: 'EChartsExample',
     setup() {

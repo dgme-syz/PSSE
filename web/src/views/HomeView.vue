@@ -25,11 +25,8 @@
             <el-menu-item index="2-1" @click="currentTab = 'entry'" >进入</el-menu-item>
             <el-menu-item index="2-2" @click="currentTab = 'settlement'">结算</el-menu-item>
           </el-menu-item-group>
-          <el-menu-item-group title="违规车辆模块">
-            <el-menu-item index="2-3" @click="currentTab = 'violation'">查找违规车辆</el-menu-item>
-          </el-menu-item-group>
         </el-sub-menu>
-        <el-menu-item index="4">
+        <el-menu-item index="3">
           <el-icon><Promotion /></el-icon>
           <span>联系我们</span>
         </el-menu-item>
@@ -40,11 +37,12 @@
           <StatsModule v-if="currentTab === 'stats'" />
           <EntryModule v-if="currentTab === 'entry'" />
           <SettlementModule v-if="currentTab === 'settlement'" />
-          <ViolationModule v-if="currentTab === 'violation'" />
         </el-main>
       </el-container>
     </el-container>
   </div>
+
+
 </template>
 
 
@@ -53,19 +51,17 @@
 import StatsModule from '../components/StatsModule.vue';
 import EntryModule from '../components/EntryModule.vue';
 import SettlementModule from '../components/SettlementModule.vue';
-import ViolationModule from '../components/ViolationModule.vue';
 
 export default {
   data() {
     return {
-      currentTab: 'stats'
+      currentTab: 'stats',
     };
   },
   components:{
     StatsModule,
     EntryModule,
     SettlementModule,
-    ViolationModule
   }
 };
 </script>
