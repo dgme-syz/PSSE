@@ -11,7 +11,6 @@ from datetime import date, datetime
 from django.db.models import Sum
 from .Licence_Recognition.detect import predict_api
 import math
-import json
 
 # Create your views here.
 @csrf_exempt
@@ -246,6 +245,16 @@ def query_parking_record_by_date(request):
         return Response({'success': False, 'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_parking_records(request):
+    # Retrieve the currently authenticated user's parking records
+    user = request.user
+    user_cars = user.cars.all()
+    parking_records = ParkingRecord.objects.filter(car__in=user_cars)
+
+    serializer = ParkingRecordSerializer(parking_records, many=True)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def get_parking_spots(request):
@@ -255,6 +264,21 @@ def get_parking_spots(request):
         'origin_number': global_settings.origin_parking_spots,
     })
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def unpaid_cars(request):
+    # Retrieve the currently authenticated user's cars
+    user = request.user
+    user_cars = user.cars.all()
+
+    # Find cars with unpaid parking records
+    unpaid_cars = Car.objects.filter(parked_at__isnull=False, parkingrecord__car__in=user.cars.all()).distinct()
+
+    # Serialize the unpaid cars and return as JSON
+    serializer = CarSerializer(unpaid_cars, many=True)
+    return Response(serializer.data)
+
 
 @api_view(['GET'])
 def get_plate_number(request):

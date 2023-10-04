@@ -30,3 +30,8 @@ class AddCarSerializer(serializers.Serializer):
     class Meta:
         model = Car
         fields = '__all__'
+
+class CarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Car
+        fields = '__all__'
