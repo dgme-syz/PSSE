@@ -1,36 +1,32 @@
-import json
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from django.http import JsonResponse
 from django.core.mail import send_mail
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from .models import VerificationCode, ParkingSystemUser
 from PIL import Image
+from .serializers import UserLoginSerializer, SendVerificationCodeSerializer, RegisterSerializer, ChangeEmailSerializer, ChangePasswordSerializer
 
-
-@csrf_exempt
+@api_view(['POST'])
 def user_login(request):
-    if request.method == 'POST':
-        data = json.loads(request.body.decode('utf-8'))
-        email = data.get('email')
-        password = data.get('password')
-        print(email)
+    serializer = UserLoginSerializer(data=request.data)
+    if serializer.is_valid():
+        email = serializer.validated_data['email']
+        password = serializer.validated_data['password']
         user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request, user)
-            return JsonResponse({'success': True, 'message': '登录成功'})
+            return Response({'success':True}, status=status.HTTP_200_OK)
         else:
-            return JsonResponse({'success': False, 'message': '用户名或密码错误'})
-
-    return JsonResponse({'success': False, 'message': '请求方法错误'})
-
+            return Response({'success':False}, status=status.HTTP_401_UNAUTHORIZED)
+    return Response({'success': False, 'message': '请求数据无效'}, status=status.HTTP_400_BAD_REQUEST)
 
 def home_view(request):
     return render(request, 'dist/index.html')
     
 # 便于简单配置上传图片
-@csrf_exempt 
 def pic_solve(request):
     if request.method == 'POST':
         # 接收上传的图片文件
@@ -48,17 +44,16 @@ def pic_solve(request):
             'message': '图片处理成功',
             # 添加其他需要返回的信息
         }
-        return JsonResponse(response_data)
+        return Response(response_data)
     
     # 如果不是 POST 请求，返回 400 错误
-    return JsonResponse({'success': False,'error': '只支持 POST 请求'}, status=400)
+    return Response({'success': False,'error': '只支持 POST 请求'}, status=400)
 
-@csrf_exempt
-# @csrf_protect
+@api_view(['GET'])
 def send_verification_code(request):
-    if request.method == 'GET':
-        data = json.loads(request.body.decode('utf-8'))
-        email = data.get('email')
+    serializer = SendVerificationCodeSerializer(data=request.data)
+    if serializer.is_valid():
+        email = serializer.validated_data['email']
 
         # 删除旧的验证码记录（如果存在）
         VerificationCode.objects.filter(email=email).delete()
@@ -77,112 +72,118 @@ def send_verification_code(request):
         #           recipient_list, fail_silently=False)
 
         # 返回响应
-        return JsonResponse({'success': True, "message": "验证码发送成功"})
+        return Response({'success': True})
+    return Response({'success': False, 'error': '无效的数据'}, status=status.HTTP_400_BAD_REQUEST)
 
-    return JsonResponse({'success': False, 'error': '仅支持 GET 请求'})
 
-@csrf_exempt
+@api_view(['POST'])
 def register(request):
     if request.method == 'POST':
-        data = json.loads(request.body.decode('utf-8'))
-        email = data.get('email')
-        username = data.get('username')
-        password = data.get('password')
-        entered_code = data.get('code')
+        serializer = RegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            email = serializer.validated_data['email']
+            username = serializer.validated_data['username']
+            password = serializer.validated_data['password']
+            entered_code = serializer.validated_data['code']
 
-        # 在生成验证码之前查询数据库，检查用户是否已注册
-        from django.contrib.auth.models import User
-        user_exists = ParkingSystemUser.objects.filter(email=email).exists()
-        if user_exists:
-            return JsonResponse({'success': False, 'error': '该邮箱已注册'})
+            # 在生成验证码之前查询数据库，检查用户是否已注册
+            user_exists = ParkingSystemUser.objects.filter(email=email).exists()
+            if user_exists:
+                return Response({'success': False, 'error': '该邮箱已注册'}, status=status.HTTP_400_BAD_REQUEST)
 
+            # 查询数据库中是否有该邮箱的验证码记录
+            try:
+                verification_code = VerificationCode.objects.get(email=email)
+            except VerificationCode.DoesNotExist:
+                return Response({'success': False, 'error': '请先获取验证码'}, status=status.HTTP_401_UNAUTHORIZED)
 
-        # 查询数据库中是否有该邮箱的验证码记录
-        try:
-            verification_code = VerificationCode.objects.get(email=email)
-        except VerificationCode.DoesNotExist:
-            return JsonResponse({'success': False, 'error': '请先获取验证码'})
+            # 检查验证码是否过期
+            from django.utils import timezone
+            current_time = timezone.now()
+            validity_period_minutes = 5  # 假设验证码有效期为5分钟
+            time_difference = current_time - verification_code.created_at
 
-        # 检查验证码是否过期
-        from django.utils import timezone
-        current_time = timezone.now()
-        validity_period_minutes = 5  # 假设验证码有效期为5分钟
-        time_difference = current_time - verification_code.created_at
+            if time_difference.total_seconds() / 60 > validity_period_minutes:
+                return Response({'success': False, 'error': '验证码已过期，请重新获取'}, status=status.HTTP_401_UNAUTHORIZED)
 
-        if time_difference.total_seconds() / 60 > validity_period_minutes:
-            return JsonResponse({'success': False, 'error': '验证码已过期，请重新获取'})
+            # 检查验证码是否正确
+            if entered_code != verification_code.code:
+                return Response({'success': False, 'error': '验证码不正确'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # 检查验证码是否正确
-        if entered_code != verification_code.code:
-            return JsonResponse({'success': False, 'error': '验证码不正确'})
+            # 保存用户密码到数据库（示例中使用了Django内置的User模型）
+            user = ParkingSystemUser(username=username, email=email)
+            user.set_password(password)
+            user.save()
 
-        # 保存用户密码到数据库（示例中使用了Django内置的User模型）
-        user = ParkingSystemUser(username=username,email=email)
-        user.set_password(password)
-        user.save()
+            # 注册成功，可以清理验证码记录
+            verification_code.delete()
 
-        # 注册成功，可以清理验证码记录
-        verification_code.delete()
+            return Response({'success': True},status=status.HTTP_201_CREATED)
 
-        return JsonResponse({'success': True})
+        return Response({'success': False, 'error': '无效的数据'}, status=status.HTTP_400_BAD_REQUEST)
 
-    return JsonResponse({'success': False, 'error': '仅支持 POST 请求'})
+    return Response({'success': False, 'error': '仅支持 POST 请求'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 # Change User email
 
 
-@login_required
-@csrf_exempt
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def change_email(request):
-    if request.method == 'POST':
-        data = json.loads(request.body.decode('utf-8'))
-        new_email = data.get('new_email')
-        entered_code = data.get('code')
+    serializer = ChangeEmailSerializer(data=request.data)
+    if serializer.is_valid():
+        new_email = serializer.validated_data['new_email']
+        entered_code = serializer.validated_data['code']
         user = request.user
 
         # 验证新邮箱是否合法
-
         if user.email == new_email:
-            return JsonResponse({'success': False, 'error': '新邮箱与当前邮箱相同。'})
-        else:
-            try:
-                # 检查验证码是否有效
-                verification_code = VerificationCode.objects.get(
-                    email=user.email, code=entered_code)
-            except VerificationCode.DoesNotExist:
-                return JsonResponse({'success': False, 'error': '验证码不正确或已过期。'})
-            else:
-                verification_code.delete()  # 验证通过后删除验证码
-                user.email = new_email
-                user.save()
-                return JsonResponse({'success': False, 'message': '邮箱已成功修改。'})
-    return JsonResponse({'success': False, 'error': '仅支持 POST 请求'})
-
-
-@login_required
-@csrf_exempt
-def change_password(request):
-    if request.method == 'POST':
-        data = json.loads(request.body.decode('utf-8'))
-        old_password = data.get('old_password')
-        new_password = data.get('new_password')
-        entered_code = data.get('code')
-        user = request.user
+            return Response({'success': False, 'error': '新邮箱与当前邮箱相同。'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            # 验证验证码是否有效
-            verification_code = VerificationCode.objects.get(
-                email=user.email, code=entered_code)
+            # 检查验证码是否有效
+            verification_code = VerificationCode.objects.get(email=user.email, code=entered_code)
         except VerificationCode.DoesNotExist:
-            return JsonResponse({'success': False, 'error': '验证码不正确或已过期。'})
+            return Response({'success': False, 'error': '验证码不正确或已过期。'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        # 验证通过后删除验证码
+        verification_code.delete()
+        
+        # 修改用户邮箱
+        user.email = new_email
+        user.save()
+        
+        return Response({'success': True, 'message': '邮箱已成功修改。'})
 
-        # 验证旧密码是否正确
-        if not user.check_password(old_password):
-            return JsonResponse({'success': False, 'error': '旧密码不正确。'})
-        else:
-            verification_code.delete()  # 验证通过后删除验证码
-            user.set_password(new_password)
-            user.save()
-            return JsonResponse({'success': True})
+    return Response({'success': False, 'error': '无效的数据'}, status=status.HTTP_400_BAD_REQUEST)
 
-    return JsonResponse({'success': False, 'error': '仅支持 POST 请求。'})
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def change_password(request):
+    if request.method == 'POST':
+        serializer = ChangePasswordSerializer(data=request.data)
+        if serializer.is_valid():
+            old_password = serializer.validated_data['old_password']
+            new_password = serializer.validated_data['new_password']
+            entered_code = serializer.validated_data['code']
+            user = request.user
+
+            try:
+                # 验证验证码是否有效
+                verification_code = VerificationCode.objects.get(email=user.email, code=entered_code)
+            except VerificationCode.DoesNotExist:
+                return Response({'success': False, 'error': '验证码不正确或已过期。'}, status=status.HTTP_400_BAD_REQUEST)
+
+            # 验证旧密码是否正确
+            if not user.check_password(old_password):
+                return Response({'success': False, 'error': '旧密码不正确。'}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                verification_code.delete()  # 验证通过后删除验证码
+                user.set_password(new_password)
+                user.save()
+                return Response({'success': True})
+
+        return Response({'success': False, 'error': '无效的数据'}, status=status.HTTP_400_BAD_REQUEST)
+
+    return Response({'success': False, 'error': '仅支持 POST 请求。'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)

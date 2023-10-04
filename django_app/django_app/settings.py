@@ -87,7 +87,7 @@ DATABASES = {
         'OPTIONS': {
             'charset': 'utf8mb4',
         },
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'psse',
         'USER': 'psse',
         'PASSWORD': '123456123456',
         'HOST': 'localhost',
