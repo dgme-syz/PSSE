@@ -104,6 +104,7 @@ def register(request):
             time_difference = current_time - verification_code.created_at
 
             if time_difference.total_seconds() / 60 > validity_period_minutes:
+                verification_code.delete()
                 return Response({'success': False, 'error': '验证码已过期，请重新获取'}, status=status.HTTP_401_UNAUTHORIZED)
 
             # 检查验证码是否正确
@@ -140,11 +141,25 @@ def change_email(request):
         if user.email == new_email:
             return Response({'success': False, 'error': '新邮箱与当前邮箱相同。'}, status=status.HTTP_400_BAD_REQUEST)
 
+        # 查询数据库中是否有该邮箱的验证码记录
         try:
-            # 检查验证码是否有效
-            verification_code = VerificationCode.objects.get(email=user.email, code=entered_code)
+            verification_code = VerificationCode.objects.get(email=user.email)
         except VerificationCode.DoesNotExist:
-            return Response({'success': False, 'error': '验证码不正确或已过期。'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'success': False, 'error': '请先获取验证码'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        # 检查验证码是否过期
+        from django.utils import timezone
+        current_time = timezone.now()
+        validity_period_minutes = 5  # 假设验证码有效期为5分钟
+        time_difference = current_time - verification_code.created_at
+
+        if time_difference.total_seconds() / 60 > validity_period_minutes:
+            verification_code.delete()
+            return Response({'success': False, 'error': '验证码已过期，请重新获取'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        # 检查验证码是否正确
+        if entered_code != verification_code.code:
+            return Response({'success': False, 'error': '验证码不正确'}, status=status.HTTP_400_BAD_REQUEST)
         
         # 验证通过后删除验证码
         verification_code.delete()
@@ -169,11 +184,25 @@ def change_password(request):
             entered_code = serializer.validated_data['code']
             user = request.user
 
+            # 查询数据库中是否有该邮箱的验证码记录
             try:
-                # 验证验证码是否有效
-                verification_code = VerificationCode.objects.get(email=user.email, code=entered_code)
+                verification_code = VerificationCode.objects.get(email=user.email)
             except VerificationCode.DoesNotExist:
-                return Response({'success': False, 'error': '验证码不正确或已过期。'}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({'success': False, 'error': '请先获取验证码'}, status=status.HTTP_401_UNAUTHORIZED)
+
+            # 检查验证码是否过期
+            from django.utils import timezone
+            current_time = timezone.now()
+            validity_period_minutes = 5  # 假设验证码有效期为5分钟
+            time_difference = current_time - verification_code.created_at
+
+            if time_difference.total_seconds() / 60 > validity_period_minutes:
+                verification_code.delete()
+                return Response({'success': False, 'error': '验证码已过期，请重新获取'}, status=status.HTTP_401_UNAUTHORIZED)
+
+            # 检查验证码是否正确
+            if entered_code != verification_code.code:
+                return Response({'success': False, 'error': '验证码不正确'}, status=status.HTTP_400_BAD_REQUEST)
 
             # 验证旧密码是否正确
             if not user.check_password(old_password):

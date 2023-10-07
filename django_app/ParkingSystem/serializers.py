@@ -1,35 +1,54 @@
 from rest_framework import serializers
 from ParkingSystem.models import Car, ParkingRecord, ParkingRate, GlobalSettings
 
+
 class GlobalSettingsSerializer(serializers.Serializer):
     class Meta:
         model = GlobalSettings
         fields = '__all__'
+
 
 class ParkingRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = ParkingRecord
         fields = '__all__'
 
+
 class ParkingRateSerializer(serializers.ModelSerializer):
     class Meta:
         model = ParkingRate
         fields = '__all__'
 
-class ResetParkingDurationSerializer(serializers.Serializer):
+
+class ResetParkingDurationSerializer(serializers.ModelSerializer):
     license_plate = serializers.CharField(max_length=10)
 
-class DeleteCarSerializer(serializers.Serializer):
-    license_plate = serializers.CharField(max_length=10)
-
-class ParkCarSerializer(serializers.Serializer):
-    license_plate = serializers.CharField(max_length=10)
-    def is_valid():
-        return True
-class AddCarSerializer(serializers.Serializer):
     class Meta:
         model = Car
-        fields = '__all__'
+        fields = ['license_plate']
+
+
+class DeleteCarSerializer(serializers.ModelSerializer):
+    license_plate = serializers.CharField(max_length=10)
+
+    class Meta:
+        model = Car
+        fields = ['license_plate']
+
+
+class ParkCarSerializer(serializers.ModelSerializer):
+    license_plate = serializers.CharField(max_length=10)
+
+    class Meta:
+        model = Car
+        fields = ['license_plate']
+
+
+class AddCarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Car
+        fields = ['license_plate', 'car_type']
+
 
 class CarSerializer(serializers.ModelSerializer):
     class Meta:
