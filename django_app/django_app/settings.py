@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-ps13yp-jdn(r3%x=wo9k6c8=-os)i=#78%!lvm7+y!yqf*esrs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # 自定义用户模型
 AUTH_USER_MODEL = 'management.ParkingSystemUser'
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'django_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'psse',
+        'NAME': 'psse.sqlite3',
     }
 }
 
