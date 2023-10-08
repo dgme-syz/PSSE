@@ -83,15 +83,8 @@ WSGI_APPLICATION = 'django_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'psse',
-        'USER': 'psse',
-        'PASSWORD': '123456123456',
-        'HOST': 'localhost',
-        'PORT': '3306',
     }
 }
 
