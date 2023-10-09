@@ -11,7 +11,7 @@ class GlobalSettingsSerializer(serializers.Serializer):
 class ParkingRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = ParkingRecord
-        fields = '__all__'
+        fields = ['start_time', 'end_time', 'price', 'license_plate']
 
 
 class ParkingRateSerializer(serializers.ModelSerializer):
@@ -53,4 +53,4 @@ class AddCarSerializer(serializers.ModelSerializer):
 class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
-        fields = '__all__'
+        fields = ['license_plate', 'car_type','parked_at']

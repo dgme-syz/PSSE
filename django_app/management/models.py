@@ -14,7 +14,7 @@ class VerificationCode(models.Model):
     @classmethod
     def generate_code(cls, email):
         code = get_random_string(length=6, allowed_chars='0123456789')
-        verification_code = cls.objects.get_or_create(email=email)
+        verification_code, created= cls.objects.get_or_create(email=email)
         verification_code.code = code
         verification_code.save()
         print(verification_code.code)

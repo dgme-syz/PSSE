@@ -24,8 +24,13 @@ urlpatterns = [
     path('api/delete_car/', views.delete_car, name='delete_car'),
     path('api/reset_parking_duration/', views.reset_parking_duration, name='reset_parking_duration'),
     path('api/update_parking_price/', views.update_parking_price, name='update_parking_price'),
-    path('api/query_parking_record_by_date/', views.query_parking_record_by_date, name='query_parking_record_by_date'),
+    path('api/query_parking_record_by_date_day/', views.query_parking_record_by_date_day, name='query_parking_record_by_date'),
     path('api/get_parking_spots/', views.get_parking_spots, name='get_parking_spots'),
     path('api/get_csrf_token/', views.get_csrf_token, name='get_csrf_token'),
+    path('api/unpaid_cars/', views.unpaid_cars, name='unpaid_cars'),
+    path('api/monthly_income_api/', views.monthly_income_api, name='monthly_income_api'),
+    path('api/daily_income_and_state_api/', views.daily_income_and_state_api, name='daily_income_and_state_api'),
+    path('api/export_parking_data/', views.export_parking_data, name='export_parking_data'),
+
 ]
     
