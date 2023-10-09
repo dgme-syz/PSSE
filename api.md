@@ -4,7 +4,7 @@
 
 接下来，前端发送一个 `post` 请求到  `/api/xxx`，发送信息为 ：
 
-```json
+```
 {
     'id' : 'XXXXXXX',
     'start_time' : 'xxxxxxx'
@@ -29,7 +29,7 @@
 
 接下来，前端发送一个 `post` 请求到  `/api/xxx`，发送信息为 ：
 
-```json
+```
 {
     'id' : 'XXXXXXX',
     'start_time' : 'xxxxxxx'
@@ -38,7 +38,7 @@
 
 然后，希望后端返回一个 `json` 形式的表单 
 
-```json
+```
 {
 	’cost' : xxx,
     'success' : True
@@ -60,7 +60,7 @@
 
 前端会发送一个 `post` 请求到  `/api/xxx`，发送信息为 ：
 
-```json
+```
 {
     'start_time' : 'xxxxxxx'
     ‘end_times’ : 'xxxxxxx'
@@ -96,7 +96,7 @@
 前端会发送一个 `get` 请求到  `/api/xxx`
 
 希望后端返回，当前停车场内车辆的以下数据 
-```json
+```
 {
 	'AU123456' : {
 		'start_time' : '10:00',
