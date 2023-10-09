@@ -1,17 +1,24 @@
+import json
+from django.http import JsonResponse
 from rest_framework import status
+from rest_framework.decorators import renderer_classes
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.renderers import JSONRenderer
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.views.decorators.csrf import csrf_exempt
 from .models import VerificationCode, ParkingSystemUser
+from rest_framework.parsers import MultiPartParser
 from PIL import Image
-from .serializers import UserLoginSerializer, SendVerificationCodeSerializer, RegisterSerializer, ChangeEmailSerializer, ChangePasswordSerializer
+from .serializers import *
 
 @api_view(['POST'])
 def user_login(request):
-    serializer = UserLoginSerializer(data=request.data)
+    data=request.data
+    serializer = UserLoginSerializer(data=data)
     if serializer.is_valid():
         email = serializer.validated_data['email']
         password = serializer.validated_data['password']
@@ -23,31 +30,50 @@ def user_login(request):
             return Response({'success':False}, status=status.HTTP_401_UNAUTHORIZED)
     return Response({'success': False, 'message': '请求数据无效'}, status=status.HTTP_400_BAD_REQUEST)
 
+
 def home_view(request):
     return render(request, 'dist/index.html')
     
-# 便于简单配置上传图片
-def pic_solve(request):
-    if request.method == 'POST':
-        # 接收上传的图片文件
-        file = request.FILES.get('file')
-        
-        # 使用 Pillow 库打开图片文件
-        image = Image.open(file)
-        # image.show()
-        
-        # 在这里进行你的图像处理逻辑
-        # ...
-        
-        # 返回处理后的信息
-        response_data = {
-            'message': '图片处理成功',
-            # 添加其他需要返回的信息
+
+
+@api_view(['POST'])
+def pic_solve_1(request):
+    # parser_classes = [MultiPartParser]
+    print(request.FILES)
+    serializer = ImageSerializer(data=request.FILES)
+    if serializer.is_valid():
+        serializer.save()
+        # serializer.validated_data['image'])
+
+        # use model
+        data = {
+            'success' : True,
+            'id' : "AU123456",
+            'url' : 'https://pic.imgdb.cn/item/6523a0f8c458853aef44e97e.jpg'
         }
-        return Response(response_data)
-    
-    # 如果不是 POST 请求，返回 400 错误
-    return Response({'success': False,'error': '只支持 POST 请求'}, status=400)
+        return Response(data)
+    else:
+        return Response(serializer.errors, status=400)
+@api_view(['POST'])
+def pic_solve_2(request):
+    # parser_classes = [MultiPartParser]
+    print(request.FILES)
+    serializer = ImageSerializer(data=request.FILES)
+    if serializer.is_valid():
+        serializer.save()
+        # serializer.validated_data['image'])
+
+        # use model
+
+        data = {
+            'success' : True,
+            'id' : "AU123456",
+            'cost' : 10,
+            'url' : 'https://pic.imgdb.cn/item/6523a0f8c458853aef44e97e.jpg'
+        }
+        return Response(data)
+    else:
+        return Response(serializer.errors, status=400)
 
 @api_view(['GET'])
 def send_verification_code(request):
@@ -104,7 +130,6 @@ def register(request):
             time_difference = current_time - verification_code.created_at
 
             if time_difference.total_seconds() / 60 > validity_period_minutes:
-                verification_code.delete()
                 return Response({'success': False, 'error': '验证码已过期，请重新获取'}, status=status.HTTP_401_UNAUTHORIZED)
 
             # 检查验证码是否正确
@@ -141,25 +166,11 @@ def change_email(request):
         if user.email == new_email:
             return Response({'success': False, 'error': '新邮箱与当前邮箱相同。'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # 查询数据库中是否有该邮箱的验证码记录
         try:
-            verification_code = VerificationCode.objects.get(email=user.email)
+            # 检查验证码是否有效
+            verification_code = VerificationCode.objects.get(email=user.email, code=entered_code)
         except VerificationCode.DoesNotExist:
-            return Response({'success': False, 'error': '请先获取验证码'}, status=status.HTTP_401_UNAUTHORIZED)
-
-        # 检查验证码是否过期
-        from django.utils import timezone
-        current_time = timezone.now()
-        validity_period_minutes = 5  # 假设验证码有效期为5分钟
-        time_difference = current_time - verification_code.created_at
-
-        if time_difference.total_seconds() / 60 > validity_period_minutes:
-            verification_code.delete()
-            return Response({'success': False, 'error': '验证码已过期，请重新获取'}, status=status.HTTP_401_UNAUTHORIZED)
-
-        # 检查验证码是否正确
-        if entered_code != verification_code.code:
-            return Response({'success': False, 'error': '验证码不正确'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'success': False, 'error': '验证码不正确或已过期。'}, status=status.HTTP_400_BAD_REQUEST)
         
         # 验证通过后删除验证码
         verification_code.delete()
@@ -184,25 +195,11 @@ def change_password(request):
             entered_code = serializer.validated_data['code']
             user = request.user
 
-            # 查询数据库中是否有该邮箱的验证码记录
             try:
-                verification_code = VerificationCode.objects.get(email=user.email)
+                # 验证验证码是否有效
+                verification_code = VerificationCode.objects.get(email=user.email, code=entered_code)
             except VerificationCode.DoesNotExist:
-                return Response({'success': False, 'error': '请先获取验证码'}, status=status.HTTP_401_UNAUTHORIZED)
-
-            # 检查验证码是否过期
-            from django.utils import timezone
-            current_time = timezone.now()
-            validity_period_minutes = 5  # 假设验证码有效期为5分钟
-            time_difference = current_time - verification_code.created_at
-
-            if time_difference.total_seconds() / 60 > validity_period_minutes:
-                verification_code.delete()
-                return Response({'success': False, 'error': '验证码已过期，请重新获取'}, status=status.HTTP_401_UNAUTHORIZED)
-
-            # 检查验证码是否正确
-            if entered_code != verification_code.code:
-                return Response({'success': False, 'error': '验证码不正确'}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({'success': False, 'error': '验证码不正确或已过期。'}, status=status.HTTP_400_BAD_REQUEST)
 
             # 验证旧密码是否正确
             if not user.check_password(old_password):
