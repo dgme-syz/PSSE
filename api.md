@@ -42,6 +42,9 @@
 {
     'id' : 'XXXXXXX',
     'start_time' : 'xxxxxxx'
+     BOHI : 1122, // 近一小时内收入
+     BODI : 1233, // 近一天收入
+     BOMI : 114514, // 近一月收入
 }
 ```
 
@@ -49,7 +52,7 @@
 
 ```
 {
-	’cost' : xxx,
+    'cost' : xxx,
     'success' : True
 }
 ```
