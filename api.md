@@ -74,7 +74,7 @@
 ```
 {
     'start_time' : 'xxxxxxx'
-    ‘end_times’ : 'xxxxxxx'
+    ‘end_time’ : 'xxxxxxx'
 }
 ```
 > `times` 考虑为最完整的时间 **2023-10** (具体到月份)
@@ -102,7 +102,7 @@
 ```
 {
     'start_time' : 'xxxxxxx'
-    ‘end_times’ : 'xxxxxxx'
+    ‘end_time’ : 'xxxxxxx'
 }
 ```
 
