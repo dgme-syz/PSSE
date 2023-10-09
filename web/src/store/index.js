@@ -2,11 +2,12 @@ import { createStore } from 'vuex'
 
 const store = createStore({
   state: {
-    loggedIn: true,// 注意初始化默认值
-    EmptyCarPostion:0,
-    BeforeOneHourIncome:0,
-    BeforeOneDayIncome:0,
-    BeforeOneMonthIncome:0,
+    loggedIn: false,// 注意初始化默认值
+    EmptyCarPostion:10,
+    BeforeOneHourIncome:10,
+    BeforeOneDayIncome:10,
+    BeforeOneMonthIncome:10,
+    csrfToken:'',
   },
   getters: {
     getVariable(state) {
@@ -34,6 +35,10 @@ const store = createStore({
       state.BeforeOneHourIncome = form.BOHI;
       state.BeforeOneMonthIncome = form.BOMI;
     },
+    setCsrf(state, val) {
+      console.log('Get csrf');
+      state.csrfToken = val;
+    }
   },
   actions: {
     updateLoggedIn({ commit }, loggedIn) {

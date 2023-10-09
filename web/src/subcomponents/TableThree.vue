@@ -151,7 +151,6 @@ export default {
                     message: h('i', { style: 'color: teal' }, '加载完毕')
                 })
             }, 2000);
-            
         },
 
         caculatemaxcost() {

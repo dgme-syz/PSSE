@@ -45,26 +45,36 @@ export default {
         return {
             name: '',
             pwd: '',
-            showPassword: false
+            showPassword: false,
+            now_headers: {
+                'X-CSRFToken': this.getCsrfTokenFromCookies()
+            }
         };
     },
     methods: {
         togglePasswordVisibility: function() {
             this.showPassword = !this.showPassword;
         },
+        getCsrfTokenFromCookies() {
+            // 在此方法中从cookies中获取CSRF token，你的实现可能会不同
+            // 以下是一个示例，你需要根据你的实际情况进行更改
+            const cookies = document.cookie.split('; ');
+            for (const cookie of cookies) {
+                const [name, value] = cookie.split('=');
+                if (name === 'csrftoken') {
+                    return value;
+                }
+            }
+            return '';
+        },
         submitForm: function() {
             var formData = {
-                name: this.name,
+                email: this.name,
                 password: this.pwd
             };
 
-            const csrfToken = "{{ csrf_token }}";
-            axios.defaults.headers.common['X-CSRFToken'] = csrfToken;
-            
             axios.post('/api/login/',  formData, {
-                headers : {
-                    'Content-Type': 'application/json'
-                }
+                headers : this.now_headers
             })
                 .then((response) => {
                     if (response.data.success) {
@@ -75,21 +85,13 @@ export default {
                         })
                         this.$router.push('./home');
                     }
+                    this.$router.push('./home');
                 })
                 .catch((error) => {
-                    if(this.$store.state.loggedIn)
-                        console.log('yes');
-                    else console.log('no');
-                    // ElNotification({
-                    //     title: '提示',
-                    //     message: h('i', { style: 'color: teal' }, '登录成功^_^'),
-                    // })
-                    this.$router.push('./home');
-                    console.log(formData.name);
-                    console.log(formData.password);
                     console.error(error);
-            });
-        }
+                });6
+        },
+
     }
 }
 </script>

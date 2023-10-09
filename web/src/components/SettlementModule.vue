@@ -35,7 +35,10 @@
           <!-- 上传车辆图片 -->
           <el-col class="lcol" :sm="12" :xs="24">
             <el-card class="left_box">
-              <el-upload class="upload-demo" drag action="api/pic/" :on-success="handleUploadSuccess" multiple >
+              <el-upload class="upload-demo" drag action="api/pic/out/" :on-success="handleUploadSuccess" 
+              :headers= uploadHeaders
+              name="image"
+              multiple >
                 <el-icon class="el-icon--upload"><upload-filled /></el-icon>
                 <div class="el-upload__text">
                   Drop file here or <em>click to upload</em>
@@ -132,10 +135,12 @@
 </template>
   
 <script>
+// import axios from 'axios';
 import { defineComponent , h} from 'vue';
 import { UploadFilled } from '@element-plus/icons-vue';
 import { Upload } from '@element-plus/icons-vue'
 import { ElNotification } from 'element-plus';
+// import { mapState } from 'vuex';
 
 export default defineComponent({
   name: 'App',
@@ -147,18 +152,51 @@ export default defineComponent({
       visible: false,
       num: 1,
       loadenter:false,
+      results: '',
+      uploadHeaders: {
+        // 在headers中添加X-CSRF字段，使用cookies中的csrf值
+        'X-Csrftoken': this.getCsrfTokenFromCookies(),
+      },
     }
+  },
+
+  created() {
+    console.log('now:');
+    console.log(this.csrfToken);
   },
 
   components: {
       UploadFilled // 注册图标组件
   },
-
   // 组件逻辑
   
   methods: {
+    getCsrfTokenFromCookies() {
+      // 在此方法中从cookies中获取CSRF token，你的实现可能会不同
+      // 以下是一个示例，你需要根据你的实际情况进行更改
+      const cookies = document.cookie.split('; ');
+      for (const cookie of cookies) {
+        const [name, value] = cookie.split('=');
+        if (name === 'csrftoken') {
+          return value;
+        }
+      }
+      return '';
+    },
     handleUploadSuccess(response) {
       // 处理上传成功后的回调
+
+      this.imageURL = response['url'];
+      var cost = response['cost'];
+
+      var form = {
+        ECP : this.$store.state.EmptyCarPostion + 1,
+        BOHI : this.$store.state.BeforeOneHourIncome + cost,
+        BODI : this.$store.state.BeforeOneDayIncome + cost,
+        BOMI : this.$store.state.BeforeOneMonthIncome + cost,  
+      };
+
+      this.$store.commit('setIncomInfo',form)
       console.log(response);
       console.log('ok');
     },
