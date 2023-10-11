@@ -45,7 +45,7 @@
                 </div>
                 <template #tip>
                   <div class="img_info_1" style="border-radius: 0 0 5px 5px">
-                    <span style="color: white; letter-spacing: 6px">开出车辆图片</span>
+                    <span style="color: white; letter-spacing: 6px">进入车辆图片</span>
                   </div>
                 </template>
               </el-upload>
@@ -62,9 +62,6 @@
           </el-col>
         </el-row>
         <div style="margin-top: 20px;">
-          <el-button type="primary">
-            Upload<el-icon class="el-icon-right1"><Upload /></el-icon>
-          </el-button>
           <el-button type="primary" @click="visible = true">
             help<el-icon><QuestionFilled /></el-icon>
           </el-button>
