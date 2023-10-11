@@ -13,7 +13,10 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import VerificationCode, ParkingSystemUser
 from rest_framework.parsers import MultiPartParser
 from PIL import Image
+from ml_models.yolov7_plate.detect_rec_plate import main
 from .serializers import *
+import os
+from django.conf import settings
 
 @api_view(['POST'])
 def user_login(request):
@@ -44,13 +47,26 @@ def pic_solve_1(request):
     if serializer.is_valid():
         serializer.save()
         # serializer.validated_data['image'])
+        path = os.path.join(settings.MEDIA_ROOT, "stdin.jpg")
 
-        # use model
+        for root, dirs, files in os.walk(settings.MEDIA_ROOT):
+            for filename in files:
+                if "stdout" in filename:
+                    # 构建文件的绝对路径
+                    file_path = os.path.join(root, filename)
+                    # 删除文件
+                    os.remove(file_path)
+
+        with open(path,'wb') as F:
+            F.write(serializer.validated_data['image'].read())
+        id,url = main()
+        # use model 
         data = {
             'success' : True,
-            'id' : "AU123456",
-            'url' : 'https://pic.imgdb.cn/item/6523a0f8c458853aef44e97e.jpg'
+            'id' : id[0],
+            'url': request.build_absolute_uri(settings.MEDIA_URL + url[0])
         }
+        print(data['url'])
         return Response(data)
     else:
         return Response(serializer.errors, status=400)
@@ -62,18 +78,107 @@ def pic_solve_2(request):
     if serializer.is_valid():
         serializer.save()
         # serializer.validated_data['image'])
+        path = os.path.join(settings.MEDIA_ROOT, "stdin.jpg")
 
+        # 先删再跑
+        for root, dirs, files in os.walk(settings.MEDIA_ROOT):
+            for filename in files:
+                if "stdout" in filename:
+                    # 构建文件的绝对路径
+                    file_path = os.path.join(root, filename)
+                    # 删除文件
+                    os.remove(file_path)
+
+        with open(path,'wb') as F:
+            F.write(serializer.validated_data['image'].read())
+        id,url = main()
         # use model
 
         data = {
             'success' : True,
-            'id' : "AU123456",
+            'id' : id[0],
             'cost' : 10,
-            'url' : 'https://pic.imgdb.cn/item/6523a0f8c458853aef44e97e.jpg'
+            'url' : request.build_absolute_uri(settings.MEDIA_URL + url[0])
         }
         return Response(data)
     else:
         return Response(serializer.errors, status=400)
+
+@api_view(['POST'])
+def test1(request):
+    print(request)
+    return Response(data=[{'date': '2012-02-21', 'state' : '良', 'income' : '121'}])
+
+@api_view(['GET'])
+def test2(request):
+    print(request.data)
+    return Response(data=[
+        { 'id': '京A12345', 'start_time': '10:00', 'end_time': '10:55' },
+        { 'id': '6666666', 'start_time': '10:15', 'end_time': '10:55' },
+        { 'id': '京C24680', 'start_time': '10:30', 'end_time': '10:55' },
+        { 'id': '京D13579', 'start_time': '10:45', 'end_time': '10:55' }
+    ])
+
+
+@api_view(['GET'])
+def test3(request):
+    print(request.data)
+    return Response(data=[
+        { 'id': '京A12345', 'start_time': '10:00', 'end_time': '10:55','cost' : 12123 },
+        { 'id': '6666666', 'start_time': '10:15', 'end_time': '10:55','cost' : 12123 },
+        { 'id': '京C24680', 'start_time': '10:30', 'end_time': '10:55','cost' : 12123 },
+        { 'id': '京D13579', 'start_time': '10:45', 'end_time': '10:55','cost' : 12123 }
+    ])
+
+@api_view(['POST'])
+def test4(request):
+    print(request.data)
+    return Response(data={
+        'BOHI': 114,
+        'BODI': 514,
+        'BOMI': 123,
+    })
+
+@api_view(['GET'])
+def test5(request):
+    print(request.data)
+    return Response(data=[
+        [89.3, 58212, '1月'],
+        [57.1, 78254, '2月'],
+        [74.4, 41032, '3月'],
+        [50.1, 12755, '4月'],
+        [89.7, 20145, '5月'],
+        [68.1, 79146, '6月'],
+        [19.6, 91852, '7月'],
+        [10.6, 101852, '8月'],
+        [32.7, 20112, '9月'],
+        [32.7, 20112, '10月'],
+        [32.7, 212, '11月'],
+        [32.7, 114514, '12月'],
+    ])
+
+@api_view(['GET'])
+def test6(request):
+    print(request.data)
+    return Response(data=[
+        {
+            'data' : '2023-10-02',
+            'income' : 1245 ,
+            'state' : '优(优/良/差)',
+            'park_times' : 12
+        },
+        {
+            'data' : '2023-10-03',
+            'income' : 123,
+            'state' : '优(优/良/差)',
+            'park_times' : 189,
+        },
+    ])
+
+@api_view(['GET'])
+def test7(request):
+    print(request.data)
+    return Response(data="https://www.zhihu.com/hot")
 
 @api_view(['GET'])
 def send_verification_code(request):
