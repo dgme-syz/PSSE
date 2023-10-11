@@ -19,6 +19,13 @@ from . import views
 
 urlpatterns = [
     path('api/login/', views.user_login, name='login'),
+    path('api/xxx1/', views.test1, name='test1'),
+    path('api/xxx2/', views.test2, name='test2'),
+    path('api/xxx3/', views.test3, name='test3'),
+    path('api/xxx4/', views.test4, name='test4'),
+    path('api/xxx5/', views.test5, name='test5'),
+    path('api/xxx6/', views.test6, name='test6'),
+    path('api/xxx7/', views.test7, name='test7'),
     path('api/pic/enter/', views.pic_solve_1, name='pic1'),
     path('api/pic/out/', views.pic_solve_2, name='pic2'),
     path('api/register/', views.register, name='register'),
