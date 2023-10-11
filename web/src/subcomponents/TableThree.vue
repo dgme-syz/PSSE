@@ -1,4 +1,46 @@
 <template>
+    <div style="width:auto;padding: 18px;">
+        <el-card>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+                <el-popover
+                :width="300"
+                popper-style="box-shadow: rgb(14 18 22 / 35%) 0px 10px 38px -10px, rgb(14 18 22 / 20%) 0px 10px 20px -15px; padding: 20px;"
+                >
+                <template #reference>
+                    <el-icon><More /></el-icon>
+                </template>
+                <template #default>
+                    <div
+                    class="demo-rich-conent"
+                    style="display: flex; gap: 16px; flex-direction: column"
+                    >
+                    <div>
+                        <p
+                        class="demo-rich-content__name"
+                        style="margin: 0; font-weight: 500"
+                        >
+                        Tip
+                        </p>
+                        <p
+                        class="demo-rich-content__mention"
+                        style="margin: 0; font-size: 14px; color: var(--el-color-info)"
+                        >
+                        @NUAA-CS
+                        </p>
+                    </div>
+
+                    <p class="demo-rich-content__desc" style="margin: 0">
+                        点击下载，以获得更多相关数据
+                    </p>
+                    </div>
+                </template>
+                </el-popover>
+                <el-button type="danger" round @click="redirectToExternalPage">下载</el-button>
+            </div>
+        </el-card>
+    </div>
+
+    <div>
     <el-row>
         <el-col :sm="16" :xs="32" style="padding: 18px;">
             <el-card>
@@ -7,9 +49,9 @@
                     :default-sort="{ prop: 'time', order: 'descending' }"
                     class="content1"
                     >
-                        <el-table-column label="Time" prop="time" sortable width="100" height="auto"></el-table-column>
-                        <el-table-column label="Num" prop="num" width="100"></el-table-column>
-                        <el-table-column label="End" prop="end" width="100"></el-table-column>
+                        <el-table-column label="Time" prop="start_time" sortable width="100" height="auto"></el-table-column>
+                        <el-table-column label="Num" prop="id" width="100"></el-table-column>
+                        <el-table-column label="End" prop="end_time" width="100"></el-table-column>
                         <el-table-column label="cost" prop="cost" width="100"></el-table-column>
                         <el-table-column align="right" min-width="70">
                         <template #header>
@@ -66,12 +108,15 @@
         </el-col>
 
     </el-row>
+    </div>
     
 </template>
 
 <script>
-import { h } from 'vue'
-import { ElNotification } from 'element-plus'
+import { h } from 'vue';
+import axios from 'axios';
+import { ElNotification } from 'element-plus';
+import { getCsrfTokenFromCookies } from '../util.js';
 
 export default {
     data() {
@@ -93,43 +138,33 @@ export default {
                 }
             ],
 
-            tableData: [
-                {
-                    time: '12:01',
-                    num: 'NU234451',
-                    end: '12:02',
-                    cost: '100'
-                },
-                {
-                    time: '12:22',
-                    num: 'NU234411',
-                    end: '12:52',
-                    cost: '60'
-                },
-                {
-                    time: '12:41',
-                    num: 'NU232351',
-                    end: '12:52',
-                    cost: '68'
-                },
-                {
-                    time: '01:01',
-                    num: 'NU223451',
-                    end: '12:52',
-                    cost: '90'
-                },
-            ],
+            tableData: [],
             isSelected: false,
-
+            
+            uploadHeaders: {
+                // 在headers中添加X-CSRF字段，使用cookies中的csrf值
+                'X-Csrftoken': getCsrfTokenFromCookies(),
+            },
         }
     },
     created() {
+        axios.get('/api/xxx3/',{
+            headers:this.uploadHeaders
+        })
+        .then(response => {
+            // 将获取到的数据赋值给 tableData
+            console.log(response.data);
+            this.tableData = response.data;
+        })
+        .catch(error => {
+            console.error('获取初始数据失败', error);
+        });
         this.caculatemaxcost();
     },
     computed: {
         filterTableData() {
             return this.tableData.filter(data =>
-                !this.search || data.num.toLowerCase().includes(this.search.toLowerCase())
+                !this.search || data.id.toLowerCase().includes(this.search.toLowerCase())
             );
         },
         percent() {
@@ -137,15 +172,32 @@ export default {
         }
     },
     methods: {
+        redirectToExternalPage() {
+            // 在这里添加额外的逻辑（可选）
+            // 然后浏览器会自动跳转到指定的外部网页
+
+            axios.get('/api/xxx7/',{
+                headers: this.uploadHeaders
+            })
+                .then(response => {
+                    const url = response.data;
+                    window.location.href = url; // 设置外部网页的 URL
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+
+        },
+
         // eslint-disable-next-line
         handleAsk(index, row) {
             this.load = true;
             setTimeout(() => {
                 this.load = false;
-                this.username = row.num;
+                this.username = row.id;
                 this.usercost = row.cost;
-                this.activities[0].timestamp = row.time;
-                this.activities[1].timestamp = row.end;
+                this.activities[0].timestamp = row.start_time;
+                this.activities[1].timestamp = row.end_time;
                 ElNotification({
                     title: 'Tip',
                     message: h('i', { style: 'color: teal' }, '加载完毕')

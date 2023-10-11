@@ -38,7 +38,7 @@
 import axios from 'axios';
 import { h } from 'vue'
 import { ElNotification } from 'element-plus'
-
+import { getCsrfTokenFromCookies } from '../util.js';
 
 export default {
     data: function() {
@@ -47,25 +47,13 @@ export default {
             pwd: '',
             showPassword: false,
             now_headers: {
-                'X-CSRFToken': this.getCsrfTokenFromCookies()
+                'X-CSRFToken': getCsrfTokenFromCookies()
             }
         };
     },
     methods: {
         togglePasswordVisibility: function() {
             this.showPassword = !this.showPassword;
-        },
-        getCsrfTokenFromCookies() {
-            // 在此方法中从cookies中获取CSRF token，你的实现可能会不同
-            // 以下是一个示例，你需要根据你的实际情况进行更改
-            const cookies = document.cookie.split('; ');
-            for (const cookie of cookies) {
-                const [name, value] = cookie.split('=');
-                if (name === 'csrftoken') {
-                    return value;
-                }
-            }
-            return '';
         },
         submitForm: function() {
             var formData = {
@@ -85,11 +73,16 @@ export default {
                         })
                         this.$router.push('./home');
                     }
-                    this.$router.push('./home');
                 })
                 .catch((error) => {
+                    // this.$store.commit('setloggedIn', true);
+                    //     ElNotification({
+                    //         title: '提示',
+                    //         message: h('i', { style: 'color: teal' }, '登录成功^_^'),
+                    //     })
+                    //     this.$router.push('./home');
                     console.error(error);
-                });6
+                });
         },
 
     }

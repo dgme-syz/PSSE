@@ -35,7 +35,7 @@
           <!-- 上传车辆图片 -->
           <el-col class="lcol" :sm="12" :xs="24">
             <el-card class="left_box">
-              <el-upload class="upload-demo" drag action="api/pic/out/" :on-success="handleUploadSuccess" 
+              <el-upload class="upload-demo" drag action="api/pic/enter/" :on-success="handleUploadSuccess" 
               :headers= uploadHeaders
               name="image"
               multiple >
@@ -62,10 +62,6 @@
           </el-col>
         </el-row>
         <div style="margin-top: 20px;">
-          <el-button type="primary">
-            Upload<el-icon class="el-icon-right1"><Upload /></el-icon>
-          </el-button>
-          <el-button type="primary" @click="updateask">Update</el-button>
           <el-button type="primary" @click="visible = true">
             help<el-icon><QuestionFilled /></el-icon>
           </el-button>
@@ -135,12 +131,13 @@
 </template>
   
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 import { defineComponent , h} from 'vue';
 import { UploadFilled } from '@element-plus/icons-vue';
 import { Upload } from '@element-plus/icons-vue'
 import { ElNotification } from 'element-plus';
 // import { mapState } from 'vuex';
+import { getCsrfTokenFromCookies } from '../util.js';
 
 export default defineComponent({
   name: 'App',
@@ -155,7 +152,7 @@ export default defineComponent({
       results: '',
       uploadHeaders: {
         // 在headers中添加X-CSRF字段，使用cookies中的csrf值
-        'X-Csrftoken': this.getCsrfTokenFromCookies(),
+        'X-Csrftoken': getCsrfTokenFromCookies(),
       },
     }
   },
@@ -171,35 +168,70 @@ export default defineComponent({
   // 组件逻辑
   
   methods: {
-    getCsrfTokenFromCookies() {
-      // 在此方法中从cookies中获取CSRF token，你的实现可能会不同
-      // 以下是一个示例，你需要根据你的实际情况进行更改
-      const cookies = document.cookie.split('; ');
-      for (const cookie of cookies) {
-        const [name, value] = cookie.split('=');
-        if (name === 'csrftoken') {
-          return value;
-        }
-      }
-      return '';
+    getCurrentTime() {
+      const now = new Date(); // 创建一个Date对象来获取当前时间
+
+      // 获取年月日、时分秒并格式化
+      const year = now.getFullYear();
+      const month = this.padZero(now.getMonth() + 1); // 月份从0开始，需要加1
+      const day = this.padZero(now.getDate());
+      const hours = this.padZero(now.getHours());
+      const minutes = this.padZero(now.getMinutes());
+      const seconds = this.padZero(now.getSeconds());
+
+      // 构建表示当前时间的字符串
+      return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
     },
+
+    padZero(num) {
+      // 辅助函数，确保数字小于10时前面添加0
+      return num < 10 ? `0${num}` : num;
+    },
+
     handleUploadSuccess(response) {
       // 处理上传成功后的回调
-
-      this.imageURL = response['url'];
-      var cost = response['cost'];
-
-      var form = {
-        ECP : this.$store.state.EmptyCarPostion + 1,
-        BOHI : this.$store.state.BeforeOneHourIncome + cost,
-        BODI : this.$store.state.BeforeOneDayIncome + cost,
-        BOMI : this.$store.state.BeforeOneMonthIncome + cost,  
+      const idx = response.id;
+      this.imageURL = response.url;
+      console.log(response);
+      const form = {
+        ECP: this.$store.state.EmptyCarPostion + 1,
+        BOHI: 0,
+        BODI: 0,
+        BOMI: 0,
       };
 
-      this.$store.commit('setIncomInfo',form)
-      console.log(response);
-      console.log('ok');
+      const ask = {
+        id: idx,
+        start_time: this.getCurrentTime(),
+      };
+
+      axios
+        .post('/api/xxx4/', ask, {
+          headers: this.uploadHeaders,
+        })
+        .then((response) => {
+          // 在请求成功后执行的代码
+          form.BODI = response.data.BODI;
+          form.BOHI = response.data.BOHI;
+          form.BOMI = response.data.BOMI;
+          
+          // 提交到 Vuex 存储
+          this.$store.commit('setIncomInfo', form);
+          
+          // 打印日志
+          console.log(response);
+          console.log('ok');
+
+          ElNotification({
+              title: 'Tip',
+              message: h('i', {style:'color: teal'},'更新完毕')                
+          })
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
+
     safe_add(){
       this.num = this.num + 1;
       if(this.num > 4) this.num = 4; 
@@ -208,27 +240,6 @@ export default defineComponent({
       if(this.num > 0) 
         this.num = this.num - 1;
     },
-    updateask() {
-      this.loadenter = true,
-      setTimeout(() => {
-          this.loadenter = false;
-          
-          // 模拟获取表单
-          var form = {
-            ECP : 12,
-            BOHI : 1122,
-            BODI : 1233,
-            BOMI : 114514, 
-          }
-
-          this.$store.commit("setIncomInfo",form);
-
-          ElNotification({
-              title: 'Tip',
-              message: h('i', {style:'color: teal'},'更新完毕')                
-          })
-      }, 2000);
-    }
   },
 });
 </script>

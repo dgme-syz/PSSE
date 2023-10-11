@@ -15,10 +15,9 @@
     <div>
         <el-card style="width: auto;">
             <el-table :data="filteredCarList" style="width: 100%" v-loading="loading" class="Table34" >
-            <el-table-column prop="licensePlate" label="车牌号码"></el-table-column>
-            <el-table-column prop="parkingTime" label="开始时间"></el-table-column>
-            <el-table-column prop="endtime" label="结束时间"></el-table-column>
-            <el-table-column prop="carType" label="车辆类型"></el-table-column>
+            <el-table-column prop="id" label="车牌号码"></el-table-column>
+            <el-table-column prop="start_time" label="开始时间"></el-table-column>
+            <el-table-column prop="end_time" label="结束时间"></el-table-column>
             </el-table>
         </el-card>
     </div>
@@ -27,7 +26,9 @@
 <script>
 
 import { h } from 'vue';
+import axios from 'axios';
 import { ElNotification } from 'element-plus';
+import { getCsrfTokenFromCookies } from '../util.js';
 
 export default {
 data() {
@@ -35,6 +36,10 @@ data() {
         carList: [],        // 当前场内车辆数据
         loading: false,     // 加载状态
         searchText: '',     // 搜索框的内容
+        uploadHeaders: {
+        // 在headers中添加X-CSRF字段，使用cookies中的csrf值
+        'X-Csrftoken': getCsrfTokenFromCookies(),
+      },
     };
 },
 computed: {
@@ -43,10 +48,9 @@ computed: {
     if (this.searchText) {
         const keyword = this.searchText.toLowerCase();
         return this.carList.filter(car =>
-        car.licensePlate.toLowerCase().includes(keyword) ||
-        car.parkingTime.includes(keyword) ||
-        car.carType.toLowerCase().includes(keyword) ||
-        car.endtime.toLowerCase().includes(keyword)
+        car.id.toLowerCase().includes(keyword) ||
+        car.start_time.includes(keyword) ||
+        car.endt_ime.toLowerCase().includes(keyword)
         );
     } else {
         return this.carList;
@@ -58,10 +62,10 @@ mounted() {
     // 模拟异步获取数据
     setTimeout(() => {
     this.carList = [
-        { licensePlate: '京A12345', parkingTime: '10:00', carType: '小型车', endtime: '10:55' },
-        { licensePlate: '京B67890', parkingTime: '10:15', carType: '大型车', endtime: '10:55' },
-        { licensePlate: '京C24680', parkingTime: '10:30', carType: '小型车', endtime: '10:55' },
-        { licensePlate: '京D13579', parkingTime: '10:45', carType: '摩托车', endtime: '10:55' }
+        { id: '京A12345', start_time: '10:00', end_time: '10:55' },
+        { id: '京B67890', start_time: '10:15', end_time: '10:55' },
+        { id: '京C24680', start_time: '10:30', end_time: '10:55' },
+        { id: '京D13579', start_time: '10:45', end_time: '10:55' }
     ];
     this.loading = false; // 数据加载完成
     }, 1000);
@@ -76,17 +80,29 @@ methods: {
     handleUpdate() {
         this.loading = true;
 
-        // 模拟异步请求，假设请求耗时为2秒
-        setTimeout(() => {
+        axios.get('/api/xxx2/',{
+            headers:this.uploadHeaders
+        })
+          .then(response => {
+            // 在这里处理从服务器获取的数据
+            console.log('从服务器获取的数据', response.data);
             this.loading = false;
-
+            
+            this.carList = response.data;
             ElNotification({
                 title: 'Tip',
                 message: h('i', {style:'color: teal'},'更新完毕')                
             })
+          })
+          .catch(error => {
+            console.error('获取数据失败', error);
+            ElNotification({
+                title: 'Warning',
+                message: h('i', {style:'color: teal'},'更新失败')                
+            })
+            this.loading = false;
+          });
 
-
-        }, 2000);
     },
 }
 };
