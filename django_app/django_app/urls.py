@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,3 +24,6 @@ urlpatterns = [
     path('', include('ParkingSystem.urls')),  # 包括应用程序级别的URL配置
     path('accounts/', include('django.contrib.auth.urls')),  # 包括Django内置的用户认证URL配置
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

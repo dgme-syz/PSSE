@@ -21,3 +21,9 @@ class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField()
     new_password = serializers.CharField()
     code = serializers.CharField()
+
+class ImageSerializer(serializers.Serializer):
+    image = serializers.ImageField()
+    def create(self, validated_data):
+        # 这里可以不实现任何逻辑，只需返回一个空的实例即可
+        return self
