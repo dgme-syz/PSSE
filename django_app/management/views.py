@@ -15,7 +15,7 @@ from ml_models.yolov7_plate.detect_rec_plate import main
 from .serializers import *
 import os
 from django.conf import settings
-
+from django.middleware.csrf import get_token
 @api_view(['POST'])
 def user_login(request):
     data=request.data
@@ -33,6 +33,7 @@ def user_login(request):
 
 
 def home_view(request):
+    csrf_token = get_token(request)
     return render(request, 'dist/index.html')
     
 
