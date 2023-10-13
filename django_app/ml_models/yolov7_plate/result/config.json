@@ -1,0 +1,8 @@
+{
+    "detect_model": "ml_models/yolov7_plate/result/yolov7-lite-s.pt",
+    "rec_model": "ml_models/yolov7_plate/result/plate_rec.pth",
+    "source": "ml_models/yolov7_plate/result",
+    "img_size": 640,
+        "kpt-label": 4,
+    "output": "ml_models/yolov7_plate/result"
+}
