@@ -11,8 +11,6 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
 from .models import VerificationCode, ParkingSystemUser
-from rest_framework.parsers import MultiPartParser
-from PIL import Image
 from ml_models.yolov7_plate.detect_rec_plate import main
 from .serializers import *
 import os
