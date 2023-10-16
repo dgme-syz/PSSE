@@ -194,12 +194,12 @@ def send_verification_code(request):
         # 邮件内容
         subject = '注册验证码'
         message = f'您的验证码是：{verification_code}'
-        from_email = 'your_email@example.com'  # 发件人邮箱
+        from_email = '3416855294@qq.com'  # 发件人邮箱
         recipient_list = [email]  # 收件人邮箱
 
         # 发送邮件
-        # send_mail(subject, message, from_email,
-        #           recipient_list, fail_silently=False)
+        send_mail(subject, message, from_email,
+                  recipient_list, fail_silently=False)
 
         # 返回响应
         return Response({'success': True})
