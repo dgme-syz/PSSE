@@ -20,9 +20,9 @@ from . import views
 urlpatterns = [
     # path('api/recognize_license_plate/', views.recognize_license_plate, name='recognize_license_plate'),
     path('api/add_car/', views.add_car, name='add_car'),
-    path('api/park_car/', views.park_car, name='park_car'),
+    path('api/in/', views.park_car, name='park_car'),
     path('api/delete_car/', views.delete_car, name='delete_car'),
-    path('api/reset_parking_duration/', views.reset_parking_duration, name='reset_parking_duration'),
+    path('api/out/', views.reset_parking_duration, name='reset_parking_duration'),
     path('api/update_parking_price/', views.update_parking_price, name='update_parking_price'),
     path('api/query_parking_record_by_date_day/', views.query_parking_record_by_date_day, name='query_parking_record_by_date'),
     path('api/get_parking_spots/', views.get_parking_spots, name='get_parking_spots'),

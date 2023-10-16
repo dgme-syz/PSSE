@@ -49,6 +49,51 @@ def calculate_parking_price(parking_duration_minutes, car_type):
         # 如果车型不存在对应的价格记录，可以返回一个默认价格或者引发异常
         raise ValueError('未知的车型')
 
+def calculate_income_within_last_hour():
+    now = timezone.now()
+    one_hour_ago = now - timedelta(hours=1)
+    
+    # 查询近一小时内的停车记录
+    parking_records = ParkingRecord.objects.filter(
+        start_time__gte=one_hour_ago,
+        end_time__lte=now
+    )
+    
+    # 计算总收入
+    total_income = sum(record.price for record in parking_records)
+    
+    return total_income
+
+def calculate_income_within_last_day():
+    now = timezone.now()
+    one_day_ago = now - timedelta(days=1)
+    
+    # 查询近一天内的停车记录
+    parking_records = ParkingRecord.objects.filter(
+        start_time__gte=one_day_ago,
+        end_time__lte=now
+    )
+    
+    # 计算总收入
+    total_income = sum(record.price for record in parking_records)
+    
+    return total_income
+
+def calculate_income_within_last_month():
+    now = timezone.now()
+    one_month_ago = now - timedelta(days=30)
+    
+    # 查询近一个月内的停车记录
+    parking_records = ParkingRecord.objects.filter(
+        start_time__gte=one_month_ago,
+        end_time__lte=now
+    )
+    
+    # 计算总收入
+    total_income = sum(record.price for record in parking_records)
+    
+    return total_income
+
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -105,7 +150,12 @@ def park_car(request):
 
         existing_car.parked_at = timezone.now()
         existing_car.save()
-        return Response({'success': True, 'message': '车辆已停车'}, status=status.HTTP_200_OK)
+        form_data = {
+            'BOHI': calculate_income_within_last_hour(),
+            'BODI': calculate_income_within_last_day(),
+            'BOMI': calculate_income_within_last_month(),
+        }
+        return Response({'success': True, 'message': '车辆已停车','data':form_data}, status=status.HTTP_200_OK)
     else:
         return Response({'success': False, 'error': '数据验证失败'}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -135,7 +185,6 @@ def delete_car(request):
 
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])  # 只有认证用户可以访问此视图
 def reset_parking_duration(request):
     data = request.data
     serializer = ResetParkingDurationSerializer(data=data)
@@ -164,9 +213,14 @@ def reset_parking_duration(request):
             parking_record = ParkingRecord(car=car_to_reset, start_time=start_time,
                                            end_time=end_time, price=parking_price, license_plate=license_plate)
             parking_record.save()
+            form_data = {
+            'BOHI': calculate_income_within_last_hour(),
+            'BODI': calculate_income_within_last_day(),
+            'BOMI': calculate_income_within_last_month(),
+            }
 
             return Response({'success': True, 'message': '取车成功', 'parking_duration_minutes': parking_duration,
-                             'parking_price': parking_price}, status=status.HTTP_200_OK)
+                             'parking_price': parking_price,'data': form_data}, status=status.HTTP_200_OK)
         else:
             return Response({'success': False, 'error': '车辆不存在或者尚未停车'}, status=status.HTTP_404_NOT_FOUND)
     else:
@@ -217,15 +271,12 @@ def convert_timeisoformat_to_querystring(timeisoformat,max_or_min:bool=False):
 def query_parking_record_by_date_day(request):
     try:
         # 获取查询参数
-        start_date_str = request.query_params.get('start_date')
-        end_date_str = request.query_params.get('end_date')
-
-        start_datetime_with_tz = convert_timeisoformat_to_querystring(start_date_str,max_or_min=False)
-        end_datetime_with_tz = convert_timeisoformat_to_querystring(end_date_str)
+        start_date = timezone.now() - timedelta(days=1)
+        end_date = timezone.now()
         # 查询匹配日期范围的停车记录
         parking_records = ParkingRecord.objects.filter(
-            start_time__range=(start_datetime_with_tz, end_datetime_with_tz),
-            end_time__range=(start_datetime_with_tz, end_datetime_with_tz)
+            start_time__range=(start_date, end_date),
+            end_time__range=(start_date, end_date)
         )
 
         total_cost = parking_records.aggregate(Sum('price'))['price__sum']
@@ -254,6 +305,8 @@ def monthly_income_api(request):
     start_date = request.query_params.get('start_date')
     end_date = request.query_params.get('end_date')
     
+    start_date +='-01'
+    end_date +='-01'
     # 将传入的日期字符串转换为日期对象
     start_date_obj = datetime.strptime(start_date, '%Y-%m-%d')
     end_date_obj = datetime.strptime(end_date, '%Y-%m-%d')
