@@ -1,15 +1,11 @@
-import json
-from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.decorators import renderer_classes
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.renderers import JSONRenderer
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.core.mail import send_mail
-from django.views.decorators.csrf import csrf_exempt
 from .models import VerificationCode, ParkingSystemUser
 from ml_models.yolov7_plate.detect_rec_plate import main
 from .serializers import *
@@ -194,12 +190,12 @@ def send_verification_code(request):
         # 邮件内容
         subject = '注册验证码'
         message = f'您的验证码是：{verification_code}'
-        from_email = 'your_email@example.com'  # 发件人邮箱
+        from_email = '3416855294@qq.com'  # 发件人邮箱
         recipient_list = [email]  # 收件人邮箱
 
         # 发送邮件
-        # send_mail(subject, message, from_email,
-        #           recipient_list, fail_silently=False)
+        send_mail(subject, message, from_email,
+                  recipient_list, fail_silently=False)
 
         # 返回响应
         return Response({'success': True})
