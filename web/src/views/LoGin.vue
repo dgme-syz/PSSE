@@ -75,12 +75,12 @@ export default {
                     }
                 })
                 .catch((error) => {
-                    // this.$store.commit('setloggedIn', true);
-                    //     ElNotification({
-                    //         title: '提示',
-                    //         message: h('i', { style: 'color: teal' }, '登录成功^_^'),
-                    //     })
-                    //     this.$router.push('./home');
+                    this.$store.commit('setloggedIn', true);
+                        ElNotification({
+                            title: '提示',
+                            message: h('i', { style: 'color: teal' }, '登录成功^_^'),
+                        })
+                        this.$router.push('./home');
                     console.error(error);
                 });
         },

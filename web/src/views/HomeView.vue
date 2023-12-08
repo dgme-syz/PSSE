@@ -5,6 +5,7 @@
         <h1>NUAA · CS</h1> <h1>停车场管理系统</h1> <img src="../assets/1.png" alt="NUAA Logo" class = "logo-img" />
       </el-header>
       <el-container>
+      <div style="height=100%;">
         <el-aside width="200px" class="aside">
           <el-col >
       <h5 class="mb-2">主要功能</h5>
@@ -26,18 +27,23 @@
             <el-menu-item index="2-2" @click="currentTab = 'settlement'">结算</el-menu-item>
           </el-menu-item-group>
         </el-sub-menu>
-        <el-menu-item index="3">
+        <el-menu-item index="3" @click="currentTab = 'answer'"><el-icon><ChatDotRound /></el-icon><span>用户提问</span></el-menu-item>
+        <el-menu-item index="4">
           <el-icon><Promotion /></el-icon>
           <span>联系我们</span>
         </el-menu-item>
       </el-menu>
     </el-col>
         </el-aside>
+      </div>
+      <div style="flex:1;">
         <el-main class="main">
           <StatsModule v-if="currentTab === 'stats'" />
           <EntryModule v-if="currentTab === 'entry'" />
           <SettlementModule v-if="currentTab === 'settlement'" />
+          <AnswerModule v-if="currentTab === 'answer'"/>
         </el-main>
+      </div>
       </el-container>
     </el-container>
   </div>
@@ -51,6 +57,7 @@
 import StatsModule from '../components/StatsModule.vue';
 import EntryModule from '../components/EntryModule.vue';
 import SettlementModule from '../components/SettlementModule.vue';
+import AnswerModule from '../components/AnswerModule.vue';
 
 export default {
   data() {
@@ -62,6 +69,7 @@ export default {
     StatsModule,
     EntryModule,
     SettlementModule,
+    AnswerModule,
   }
 };
 </script>
@@ -73,6 +81,10 @@ export default {
   width: 80px;
   height: auto;
   margin-top: 5px;
+}
+
+.el-menu {
+  border-right: none !important;
 }
 
 .header {
@@ -103,7 +115,7 @@ h1 {
 
 .aside {
   background-color: #ffffff;
-  height: auto;
+  height: 100vh;
 
   border-right: 1px solid #ccc;
 }
@@ -112,7 +124,7 @@ h1 {
   background-color: #ffffff;
   display: flex;
   justify-content: flex-start;
-  width: 1400px;
-  height: auto;
+  width: 100%;
+  height: 100vh;
 }
 </style>
