@@ -27,7 +27,7 @@
             <el-menu-item index="2-2" @click="currentTab = 'settlement'">结算</el-menu-item>
           </el-menu-item-group>
         </el-sub-menu>
-        <el-menu-item index="3" @click="currentTab = 'answer'"><el-icon><ChatDotRound /></el-icon><span>用户提问</span></el-menu-item>
+        <el-menu-item index="3" @click="currentTab = 'find'"><el-icon><Compass /></el-icon><span>自动寻路</span></el-menu-item>
         <el-menu-item index="4">
           <el-icon><Promotion /></el-icon>
           <span>联系我们</span>
@@ -41,7 +41,7 @@
           <StatsModule v-if="currentTab === 'stats'" />
           <EntryModule v-if="currentTab === 'entry'" />
           <SettlementModule v-if="currentTab === 'settlement'" />
-          <AnswerModule v-if="currentTab === 'answer'"/>
+          <FindEnmpty v-if="currentTab === 'find'"/>
         </el-main>
       </div>
       </el-container>
@@ -57,7 +57,7 @@
 import StatsModule from '../components/StatsModule.vue';
 import EntryModule from '../components/EntryModule.vue';
 import SettlementModule from '../components/SettlementModule.vue';
-import AnswerModule from '../components/AnswerModule.vue';
+import FindEnmpty from '@/components/FindEnmpty.vue';
 
 export default {
   data() {
@@ -69,7 +69,7 @@ export default {
     StatsModule,
     EntryModule,
     SettlementModule,
-    AnswerModule,
+    FindEnmpty,
   }
 };
 </script>
@@ -124,7 +124,7 @@ h1 {
   background-color: #ffffff;
   display: flex;
   justify-content: flex-start;
-  width: 100%;
-  height: 100vh;
+  /* width: 100%;
+  height: 100vh; */
 }
 </style>

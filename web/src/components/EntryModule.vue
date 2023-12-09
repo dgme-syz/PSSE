@@ -56,8 +56,6 @@
             <el-card class="right_box">
               <!-- 返回服务器传来的图片 -->
                 <el-image :src="imageURL" @error="handleError" class="img"></el-image>
-
-
             </el-card>
           </el-col>
         </el-row>
@@ -80,7 +78,7 @@
               </div>
             </template>
             <template #suffix>/100</template>
-          </el-statistic>
+          </el-statistic> 
         </el-col>
       </div>
       <div class="subdata">

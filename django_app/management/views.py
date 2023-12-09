@@ -8,8 +8,9 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from .models import VerificationCode, ParkingSystemUser
 from ml_models.yolov7_plate.detect_rec_plate import main
+from ml_models.ParkingNavigation.models.Graph import *
 from .serializers import *
-import os
+import os, cv2, random, string
 from django.conf import settings
 from django.middleware.csrf import get_token
 @api_view(['POST'])
@@ -54,7 +55,7 @@ def pic_solve_1(request):
 
         with open(path,'wb') as F:
             F.write(serializer.validated_data['image'].read())
-        id,url = main()
+        id, url = main()
         # use model 
         data = {
             'success' : True,
@@ -313,3 +314,36 @@ def change_password(request):
         return Response({'success': False, 'error': '无效的数据'}, status=status.HTTP_400_BAD_REQUEST)
 
     return Response({'success': False, 'error': '仅支持 POST 请求。'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+@api_view(['POST'])
+def out1(request):
+    # 根据 request 的 type 字段，输出当前最短路径
+    w = Graph()
+    dis, z, NodesList = w.Dijkstra(int(request.data['type']))
+    img = Visulize(NodesList)
+    
+    # 先删再跑
+    for root, dirs, files in os.walk(settings.MEDIA_ROOT):
+        for filename in files:
+            if "Gout" in filename:
+                # 构建文件的绝对路径
+                file_path = os.path.join(root, filename)
+                # 删除文件
+                os.remove(file_path)
+
+    assert len(img) != 0
+    file_name = "Gout" + ''.join(random.choices(string.ascii_letters + string.digits, k=8)) + ".png"
+    file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+    file_path = file_path.replace("\\", "/")
+    
+    cv2.imwrite(file_path, img)
+    
+    file_url = settings.MEDIA_URL + file_name
+    
+    return Response(data={"dis": dis, "url": file_url})
+
+
+@api_view(['POST'])
+def out2(request):
+    # 传入图片然后更新节点
+    print(request)
