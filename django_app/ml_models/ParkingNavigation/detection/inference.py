@@ -9,6 +9,7 @@ sys.path.append(base_dir)
 from model import ResNet18
 net = ResNet18(num_classes=2)
 
+print(base_dir)
 from datasets_.data_utils import preprocess
 assert "best_model.pt" in os.listdir(save_dir)
 net.load_state_dict(torch.load(os.path.join(save_dir, "best_model.pt")))

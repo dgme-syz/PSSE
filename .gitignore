@@ -9,3 +9,4 @@
 /django_app/ParkingSystem/Licence_Recognition/utils/__pycache__
 /django_app/db.sqlite3
 /web/dist
+*.ipynb
