@@ -2,7 +2,7 @@ import json, cv2, sys, os
 import numpy as np
 from PIL import Image
 from pathlib import Path
-from utils import *
+from utils_ import *
 from detection.inference import dectect
 
 base_dir = Path(__file__).parent.absolute().__str__()

@@ -8,7 +8,7 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from .models import VerificationCode, ParkingSystemUser
 from ml_models.yolov7_plate.detect_rec_plate import main
-from ml_models.ParkingNavigation.models.Graph import *
+from ml_models.ParkingNavigation.models_.Graph import *
 from ml_models.ParkingNavigation.upd import chk
 from .serializers import *
 from PIL import Image
