@@ -9,7 +9,11 @@ from django.core.mail import send_mail
 from .models import VerificationCode, ParkingSystemUser
 from ml_models.yolov7_plate.detect_rec_plate import main
 from ml_models.ParkingNavigation.models.Graph import *
+from ml_models.ParkingNavigation.upd import chk
 from .serializers import *
+from PIL import Image
+from io import BytesIO
+import numpy as np
 import os, cv2, random, string
 from django.conf import settings
 from django.middleware.csrf import get_token
@@ -319,8 +323,9 @@ def change_password(request):
 def out1(request):
     # 根据 request 的 type 字段，输出当前最短路径
     w = Graph()
+    scene = os.path.join(settings.MEDIA_ROOT, "scene.jpg")
     dis, z, NodesList = w.Dijkstra(int(request.data['type']))
-    img = Visulize(NodesList)
+    img = Visulize(NodesList, scene)
     
     # 先删再跑
     for root, dirs, files in os.walk(settings.MEDIA_ROOT):
@@ -346,4 +351,7 @@ def out1(request):
 @api_view(['POST'])
 def out2(request):
     # 传入图片然后更新节点
-    print(request)
+    img = Image.open(BytesIO(request.FILES['image'].read()))
+    img.save(os.path.join(settings.MEDIA_ROOT, "scene.jpg"))
+    chk(np.array(img))
+    return Response({"success" : True})
