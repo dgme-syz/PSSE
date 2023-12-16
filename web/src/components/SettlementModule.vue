@@ -21,19 +21,34 @@
         </el-steps>
       </div>
       <div style="justify-content: flex-end;display: flex;">
-        <el-button type="primary" style="margin-right: 10px;margin-top: 30px;"  @click="safe_subtract">Prev</el-button>
-        <el-button type="primary" style="margin-right: 30px;margin-top: 30px;"  @click="safe_add">Next</el-button>
+        <el-button type="primary" style="margin-right: 1%;margin-top: 3%;"  @click="safe_subtract">Prev</el-button>
+        <el-button type="primary" style="margin-right: 3%;margin-top: 3%;"  @click="safe_add">Next</el-button>
       </div>
     </el-dialog>
   </div>
 
 
   <div id="pic">
-      <el-card class="mainbox">
-        <el-row class="row" :gutter="40">
+    <div class="mainbox">
+      <el-card style="height: auto;">
+        <template #header>
+          <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+          <h3 class="w2">A</h3>
+          <p>车牌识别</p>
+          </div>
+        </template>
+        <div style="display: flex !important; align-items: flex-start !important; justify-content: flex-start !important;">
+          <span style="color: gray;">基于yolov7_plate项目，得到车牌识别结果，上传车辆正面图片即可获得车牌识别结果</span>
+        </div>
+        <el-row>
+          <h3 class="w1">上传图片</h3>
+        </el-row>
+        <div class="test" style="width: 100%;height: 93%;margin-top: 2%;">
+        <el-row class="row" >
           <!-- 使用el-card包裹上传窗口 -->
           <!-- 上传车辆图片 -->
-          <el-col class="lcol" :sm="12" :xs="24">
+          <div style="height: 100%;width: 100%; display:flex;justify-content: space-between;align-items: center;">
+          <div class="lcol">
             <el-card class="left_box">
               <el-upload class="upload-demo" drag action="api/pic/enter/" :on-success="handleUploadSuccess" 
               :headers= uploadHeaders
@@ -50,27 +65,35 @@
                 </template>
               </el-upload>
             </el-card>
-          </el-col>
+          </div>
 
-          <el-col class="rcol" :sm="12" :xs="24">
+          <div class="rcol">
             <el-card class="right_box">
               <!-- 返回服务器传来的图片 -->
               <el-image :src="imageURL" @error="handleError" class="img">
                 
               </el-image>
             </el-card>
-          </el-col>
+          </div>
+          </div>
         </el-row>
-        <div style="margin-top: 20px;">
-          <el-button type="primary" @click="visible = true">
-            help<el-icon><QuestionFilled /></el-icon>
-          </el-button>
         </div>
+        
       </el-card>
+      </div>
   </div>
   <div id="data">
 
     <el-card class = "stats" v-loading="loadenter">
+      <template #header>
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="w2">B</h3>
+        <p>状态</p>
+        </div>
+      </template>
+      <div style="display: flex !important; align-items: flex-start !important; justify-content: flex-start !important;margin-bottom: 3%;">
+          <h4 style="color: gray;">运行状态</h4>
+      </div>
       <div class="subdata">
         <el-col>
           <el-statistic :value="this.$store.state.EmptyCarPostion">
@@ -121,7 +144,14 @@
           </el-statistic>
         </el-col>
       </div>
-
+      <div style="display: flex !important; align-items: flex-start !important; justify-content: flex-start !important;margin-top: 10%;">
+          <span style="color: gray;">车辆识别结果将在返回图片中标出</span>
+        </div>  
+      <div style="margin-top: 20%;">
+          <el-button type="primary" @click="visible = true">
+            help<el-icon><QuestionFilled /></el-icon>
+          </el-button>
+        </div>
     </el-card>
   </div>
 
@@ -248,36 +278,42 @@ export default defineComponent({
 
 
 #pic {
+  width: 80%;
   padding: 50px;
-  height: 500px;
+  height: 80vh;
 }
 
 #data {
+  width: 18%;
   padding: 50px;
-  height: 500px;
+  height: 80vh;
 }
 
 .mainbox {
-  width: 970px;
-  height: 450px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 70vh;
 }
 .row {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 3%;
 }
 
 .lcol {
+  width: 94%;
   height: 100%;
-  width: 100%;
+  margin-right: 3%;
+  margin-left: 3%;
 }
 
 .rcol {
+  width: 94%;
   height: 100%;
-  width: 100%;
+  margin-right: 3%;
+  margin-left: 3%;
 }
 
 @media (max-width: 768px) { /* 假设移动端宽度为768px */
@@ -288,47 +324,45 @@ export default defineComponent({
 }
 
 .right_box {
-  max-width: 100%;
+  width: 100%;
   height: 100%;
-  margin-left: 30px;
 }
 
 .left_box {
-  max-width: 100%;
+  width: 100%;
   height: 100%;
-  margin-right: 30px;
 }
 
 .img {
-  width: 300px;
-  height: 262px;
+  width: 100%;
+  height: 33.5vh;
 }
 
 .upload-demo {
-  width: 300px;
-  height: 262px;
+  width: 100%;
   align-items: center;
 }
 
 :deep() .upload-demo .el-upload-dragger {
   width: 100% !important;
-  height: 220px !important;
+  height: 28vh !important;
 }
 
 .img_info_1 {
-  height: 30px;
-  width: 300px;
+  height: 10%;
+  width: 100%;
   text-align: center;
   background-color: #FFC0CB;
   line-height: 30px;
 }
 
 .subdata {
-  padding: 10px;
+  padding: 4%;
 }
 
 .stats {
-  height: 450px;
+  height: auto;
+  width: 100%;
 }
 
 .my-header {

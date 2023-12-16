@@ -1,10 +1,10 @@
 <template>
-    <div class = "maintext">
+    <div class = "maintext" style="width:100%;">
         <el-tabs class="demo-tabs" @tab-click="handleClick" tabPosition="top" v-model="activeTab">
             <el-tab-pane label="流水分析" name="first">
             <div class="chart">
-                <div ref="chartContainer" style="width: 600px; height: 550px;"></div>
-                <div ref="chartContainer2" style="width: 600px; height: 500px;"></div>
+                <div ref="chartContainer" style="width: 50%; height: 55vh;"></div>
+                <div ref="chartContainer2" style="width: 50%; height: 55vh;"></div>
             </div>
 
             <el-divider><el-icon><star-filled /></el-icon></el-divider>
@@ -252,7 +252,7 @@ export default {
 
 .maintext > .demo-tabs {
   margin-right: 0px;
-  width: 1300px;
+  width: 100%;
   height: auto;
 }
 
