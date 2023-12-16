@@ -140,7 +140,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # image
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, r'ml_models\yolov7_plate\result')
+MEDIA_ROOT = os.path.join(BASE_DIR, r'ml_models/yolov7_plate/result')
 
 # CSRF
 CSRF_TRUSTED_ORIGINS = ['https://*.tomorrowisinyourhand.online','http://*.127.0.0.1']
