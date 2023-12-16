@@ -9,7 +9,6 @@ onnxsim==0.4.35
 opencv_python==4.8.1.78
 pafy==0.5.5
 pandas==2.1.4
-Pillow==10.0.1
 Pillow==10.1.0
 pycocotools==2.0.7
 PyMySQL==1.1.0
