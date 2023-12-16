@@ -1,0 +1,434 @@
+[
+    {
+        "x": 639.6482564610677,
+        "y": 359.1039008655496,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 795.0,
+        "y": 65.63636363636364,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 829.635761589404,
+        "y": 66.19867549668874,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 924.6736111111111,
+        "y": 65.97222222222223,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 886.219512195122,
+        "y": 67.07317073170732,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 743.8057553956835,
+        "y": 69.84172661870504,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 974.9626168224299,
+        "y": 69.1588785046729,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 1024.28,
+        "y": 70.46,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 702.5745856353591,
+        "y": 109.23756906077348,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 1019.5323741007194,
+        "y": 153.0071942446043,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 644.5416666666666,
+        "y": 156.90625,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 1075.3645833333333,
+        "y": 155.35416666666666,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 605.9803921568628,
+        "y": 200.2483660130719,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 549.4455445544554,
+        "y": 252.74257425742573,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 511.6,
+        "y": 291.7909090909091,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 455.03478260869565,
+        "y": 333.1217391304348,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 408.9741379310345,
+        "y": 364.57758620689657,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 357.6449275362319,
+        "y": 380.3188405797101,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 315.6578947368421,
+        "y": 396.87719298245617,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 269.7181818181818,
+        "y": 412.4727272727273,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 217.05555555555554,
+        "y": 428.72222222222223,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 171.2439024390244,
+        "y": 444.1056910569106,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 131.65753424657535,
+        "y": 457.2054794520548,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 89.58,
+        "y": 469.44,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 795.5333333333333,
+        "y": 640.8857142857142,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 167.48809523809524,
+        "y": 640.7738095238095,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 3.973333333333333,
+        "y": 641.5333333333333,
+        "is_entrance": 1,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 222.89523809523808,
+        "y": 643.7333333333333,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 261.03846153846155,
+        "y": 644.0673076923077,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 456.55,
+        "y": 646.2071428571429,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 703.061403508772,
+        "y": 644.2368421052631,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 923.35,
+        "y": 643.9,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 980.8055555555555,
+        "y": 644.5208333333334,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 1020.1,
+        "y": 645.421052631579,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 408.85,
+        "y": 644.9375,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 510.45283018867923,
+        "y": 645.2358490566038,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 550.8192771084338,
+        "y": 645.5843373493976,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 609.3541666666666,
+        "y": 644.7013888888889,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 737.0891089108911,
+        "y": 645.039603960396,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 888.2,
+        "y": 646.3,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 125.53846153846153,
+        "y": 645.6923076923077,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 359.08910891089107,
+        "y": 648.4059405940594,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 645.2527472527472,
+        "y": 647.5054945054945,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 831.6491228070175,
+        "y": 646.578947368421,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 1079.8271604938273,
+        "y": 645.6296296296297,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 86.57692307692308,
+        "y": 646.3461538461538,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 318.8301886792453,
+        "y": 646.7735849056604,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    },
+    {
+        "x": 1079.283950617284,
+        "y": 709.3086419753087,
+        "is_entrance": 1,
+        "is_empty": 0,
+        "id": null,
+        "is_parking": 0,
+        "direction": 0
+    }
+]

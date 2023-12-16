@@ -1,0 +1,4690 @@
+[
+    {
+        "x": 129,
+        "y": 519,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 0,
+        "is_parking": 1
+    },
+    {
+        "x": 129,
+        "y": 534,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 1,
+        "is_parking": 1
+    },
+    {
+        "x": 129,
+        "y": 550,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 2,
+        "is_parking": 1
+    },
+    {
+        "x": 129,
+        "y": 565,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 3,
+        "is_parking": 1
+    },
+    {
+        "x": 129,
+        "y": 581,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 4,
+        "is_parking": 1
+    },
+    {
+        "x": 129,
+        "y": 596,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 5,
+        "is_parking": 1
+    },
+    {
+        "x": 129,
+        "y": 612,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 6,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 473,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 7,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 473,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 8,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 488,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 9,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 488,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 10,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 504,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 11,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 504,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 12,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 519,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 13,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 519,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 14,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 535,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 15,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 535,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 16,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 550,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 17,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 550,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 18,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 566,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 19,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 566,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 20,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 581,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 21,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 581,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 22,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 597,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 23,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 597,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 24,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 612,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 25,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 612,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 26,
+        "is_parking": 1
+    },
+    {
+        "x": 167,
+        "y": 628,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 27,
+        "is_parking": 1
+    },
+    {
+        "x": 229,
+        "y": 628,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 28,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 426,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 29,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 426,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 30,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 441,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 31,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 441,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 32,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 457,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 33,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 457,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 34,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 472,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 35,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 472,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 36,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 488,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 37,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 488,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 38,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 503,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 39,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 503,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 40,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 519,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 41,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 519,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 42,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 534,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 43,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 534,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 44,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 550,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 45,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 550,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 46,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 565,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 47,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 565,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 48,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 581,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 49,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 581,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 50,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 596,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 51,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 596,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 52,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 612,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 53,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 612,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 54,
+        "is_parking": 1
+    },
+    {
+        "x": 260,
+        "y": 627,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 55,
+        "is_parking": 1
+    },
+    {
+        "x": 324,
+        "y": 627,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 56,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 391,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 57,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 391,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 58,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 406,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 59,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 406,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 60,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 422,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 61,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 422,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 62,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 437,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 63,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 437,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 64,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 453,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 65,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 453,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 66,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 468,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 67,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 468,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 68,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 484,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 69,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 484,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 70,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 499,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 71,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 499,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 72,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 515,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 73,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 515,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 74,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 530,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 75,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 530,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 76,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 546,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 77,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 546,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 78,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 561,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 79,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 561,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 80,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 577,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 81,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 577,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 82,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 592,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 83,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 592,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 84,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 608,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 85,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 608,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 86,
+        "is_parking": 1
+    },
+    {
+        "x": 350,
+        "y": 623,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 87,
+        "is_parking": 1
+    },
+    {
+        "x": 416,
+        "y": 623,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 88,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 342,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 89,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 342,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 90,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 357,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 91,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 357,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 92,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 373,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 93,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 373,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 94,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 388,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 95,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 388,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 96,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 404,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 97,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 404,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 98,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 419,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 99,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 419,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 100,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 435,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 101,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 435,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 102,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 450,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 103,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 450,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 104,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 466,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 105,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 466,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 106,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 481,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 107,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 481,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 108,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 497,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 109,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 497,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 110,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 512,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 111,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 512,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 112,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 528,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 113,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 528,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 114,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 543,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 115,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 543,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 116,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 559,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 117,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 559,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 118,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 574,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 119,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 574,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 120,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 590,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 121,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 590,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 122,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 605,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 123,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 605,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 124,
+        "is_parking": 1
+    },
+    {
+        "x": 450,
+        "y": 621,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 125,
+        "is_parking": 1
+    },
+    {
+        "x": 514,
+        "y": 621,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 126,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 259,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 127,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 259,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 128,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 274,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 129,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 274,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 130,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 290,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 131,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 290,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 132,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 305,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 133,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 305,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 134,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 321,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 135,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 321,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 136,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 336,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 137,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 336,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 138,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 352,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 139,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 352,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 140,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 367,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 141,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 367,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 142,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 383,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 143,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 383,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 144,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 398,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 145,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 398,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 146,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 414,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 147,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 414,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 148,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 429,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 149,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 429,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 150,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 445,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 151,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 445,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 152,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 460,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 153,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 460,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 154,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 476,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 155,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 476,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 156,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 491,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 157,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 491,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 158,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 507,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 159,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 507,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 160,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 522,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 161,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 522,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 162,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 538,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 163,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 538,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 164,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 553,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 165,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 553,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 166,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 569,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 167,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 569,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 168,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 584,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 169,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 584,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 170,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 600,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 171,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 600,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 172,
+        "is_parking": 1
+    },
+    {
+        "x": 546,
+        "y": 615,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 173,
+        "is_parking": 1
+    },
+    {
+        "x": 612,
+        "y": 615,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 174,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 166,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 175,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 166,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 176,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 181,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 177,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 181,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 178,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 197,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 179,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 197,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 180,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 212,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 181,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 212,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 182,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 228,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 183,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 228,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 184,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 243,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 185,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 243,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 186,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 259,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 187,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 259,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 188,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 274,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 189,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 274,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 190,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 290,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 191,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 290,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 192,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 305,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 193,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 305,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 194,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 321,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 195,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 321,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 196,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 336,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 197,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 336,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 198,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 352,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 199,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 352,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 200,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 367,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 201,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 367,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 202,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 383,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 203,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 383,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 204,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 398,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 205,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 398,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 206,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 414,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 207,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 414,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 208,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 429,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 209,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 429,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 210,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 445,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 211,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 445,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 212,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 460,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 213,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 460,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 214,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 476,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 215,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 476,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 216,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 491,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 217,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 491,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 218,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 507,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 219,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 507,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 220,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 522,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 221,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 522,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 222,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 538,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 223,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 538,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 224,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 553,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 225,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 553,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 226,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 569,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 227,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 569,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 228,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 584,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 229,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 584,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 230,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 600,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 231,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 600,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 232,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 615,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 233,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 615,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 234,
+        "is_parking": 1
+    },
+    {
+        "x": 638,
+        "y": 631,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 235,
+        "is_parking": 1
+    },
+    {
+        "x": 706,
+        "y": 631,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 236,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 107,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 237,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 107,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 238,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 122,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 239,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 122,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 240,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 138,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 241,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 138,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 242,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 153,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 243,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 153,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 244,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 169,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 245,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 169,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 246,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 184,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 247,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 184,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 248,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 200,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 249,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 200,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 250,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 215,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 251,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 215,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 252,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 231,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 253,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 231,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 254,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 246,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 255,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 246,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 256,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 262,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 257,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 262,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 258,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 277,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 259,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 277,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 260,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 293,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 261,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 293,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 262,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 308,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 263,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 308,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 264,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 324,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 265,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 324,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 266,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 339,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 267,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 339,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 268,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 355,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 269,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 355,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 270,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 370,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 271,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 370,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 272,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 386,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 273,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 386,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 274,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 401,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 275,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 401,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 276,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 417,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 277,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 417,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 278,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 432,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 279,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 432,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 280,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 448,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 281,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 448,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 282,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 463,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 283,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 463,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 284,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 479,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 285,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 479,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 286,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 494,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 287,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 494,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 288,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 510,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 289,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 510,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 290,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 525,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 291,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 525,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 292,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 541,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 293,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 541,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 294,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 556,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 295,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 556,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 296,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 572,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 297,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 572,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 298,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 587,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 299,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 587,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 300,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 603,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 301,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 603,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 302,
+        "is_parking": 1
+    },
+    {
+        "x": 732,
+        "y": 618,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 303,
+        "is_parking": 1
+    },
+    {
+        "x": 798,
+        "y": 618,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 304,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 108,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 305,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 108,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 306,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 123,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 307,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 123,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 308,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 139,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 309,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 139,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 310,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 154,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 311,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 154,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 312,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 170,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 313,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 170,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 314,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 185,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 315,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 185,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 316,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 201,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 317,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 201,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 318,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 216,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 319,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 216,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 320,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 232,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 321,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 232,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 322,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 247,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 323,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 247,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 324,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 263,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 325,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 263,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 326,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 278,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 327,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 278,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 328,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 294,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 329,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 294,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 330,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 309,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 331,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 309,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 332,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 325,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 333,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 325,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 334,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 340,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 335,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 340,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 336,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 356,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 337,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 356,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 338,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 371,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 339,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 371,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 340,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 387,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 341,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 387,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 342,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 402,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 343,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 402,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 344,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 418,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 345,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 418,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 346,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 433,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 347,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 433,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 348,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 449,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 349,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 449,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 350,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 464,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 351,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 464,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 352,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 480,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 353,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 480,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 354,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 495,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 355,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 495,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 356,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 511,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 357,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 511,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 358,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 526,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 359,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 526,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 360,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 542,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 361,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 542,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 362,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 557,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 363,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 557,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 364,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 573,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 365,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 573,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 366,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 588,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 367,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 588,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 368,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 604,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 369,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 604,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 370,
+        "is_parking": 1
+    },
+    {
+        "x": 834,
+        "y": 619,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 371,
+        "is_parking": 1
+    },
+    {
+        "x": 891,
+        "y": 619,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 372,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 91,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 373,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 91,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 374,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 106,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 375,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 106,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 376,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 122,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 377,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 122,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 378,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 137,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 379,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 137,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 380,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 153,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 381,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 153,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 382,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 168,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 383,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 168,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 384,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 184,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 385,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 184,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 386,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 199,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 387,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 199,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 388,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 215,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 389,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 215,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 390,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 230,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 391,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 230,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 392,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 246,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 393,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 246,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 394,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 261,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 395,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 261,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 396,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 277,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 397,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 277,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 398,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 292,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 399,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 292,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 400,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 308,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 401,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 308,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 402,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 323,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 403,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 323,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 404,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 339,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 405,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 339,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 406,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 354,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 407,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 354,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 408,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 370,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 409,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 370,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 410,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 385,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 411,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 385,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 412,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 401,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 413,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 401,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 414,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 416,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 415,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 416,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 416,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 432,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 417,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 432,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 418,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 447,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 419,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 447,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 420,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 463,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 421,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 463,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 422,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 478,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 423,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 478,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 424,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 494,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 425,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 494,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 426,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 509,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 427,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 509,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 428,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 525,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 429,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 525,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 430,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 540,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 431,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 540,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 432,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 556,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 433,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 556,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 434,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 571,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 435,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 571,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 436,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 587,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 437,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 587,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 438,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 602,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 439,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 602,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 440,
+        "is_parking": 1
+    },
+    {
+        "x": 921,
+        "y": 618,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 441,
+        "is_parking": 1
+    },
+    {
+        "x": 980,
+        "y": 618,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 442,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 170,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 443,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 170,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 444,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 185,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 445,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 185,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 446,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 201,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 447,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 201,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 448,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 216,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 449,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 216,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 450,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 232,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 451,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 232,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 452,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 247,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 453,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 247,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 454,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 263,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 455,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 263,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 456,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 278,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 457,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 278,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 458,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 294,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 459,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 294,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 460,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 309,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 461,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 309,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 462,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 325,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 463,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 325,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 464,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 340,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 465,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 340,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 466,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 356,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 467,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 356,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 468,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 371,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 469,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 371,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 470,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 387,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 471,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 387,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 472,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 402,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 473,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 402,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 474,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 418,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 475,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 418,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 476,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 433,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 477,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 433,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 478,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 449,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 479,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 449,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 480,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 464,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 481,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 464,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 482,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 480,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 483,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 480,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 484,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 495,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 485,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 495,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 486,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 511,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 487,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 511,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 488,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 526,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 489,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 526,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 490,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 542,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 491,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 542,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 492,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 557,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 493,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 557,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 494,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 573,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 495,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 573,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 496,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 588,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 497,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 588,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 498,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 604,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 499,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 604,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 500,
+        "is_parking": 1
+    },
+    {
+        "x": 1013,
+        "y": 619,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 501,
+        "is_parking": 1
+    },
+    {
+        "x": 1068,
+        "y": 619,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 502,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 130,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 503,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 145,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 504,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 161,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 505,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 176,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 506,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 192,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 507,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 207,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 508,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 223,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 509,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 238,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 510,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 254,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 511,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 269,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 512,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 285,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 513,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 300,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 514,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 316,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 515,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 331,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 516,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 347,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 517,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 362,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 518,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 378,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 519,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 393,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 520,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 409,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 521,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 424,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 522,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 440,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 523,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 455,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 524,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 471,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 525,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 486,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 526,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 502,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 527,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 517,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 528,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 533,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 529,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 548,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 530,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 564,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 531,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 579,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 532,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 595,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 533,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 610,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 534,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 626,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 535,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 641,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 536,
+        "is_parking": 1
+    },
+    {
+        "x": 1111,
+        "y": 657,
+        "is_entrance": 0,
+        "is_empty": 1,
+        "id": 537,
+        "is_parking": 1
+    },
+    {
+        "x": 639.6689092902315,
+        "y": 359.2503410203066,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 538,
+        "is_parking": 0
+    },
+    {
+        "x": 742.5194805194806,
+        "y": 68.84415584415585,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 539,
+        "is_parking": 0
+    },
+    {
+        "x": 794.2027027027027,
+        "y": 67.94594594594595,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 540,
+        "is_parking": 0
+    },
+    {
+        "x": 830.3809523809524,
+        "y": 67.80952380952381,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 541,
+        "is_parking": 0
+    },
+    {
+        "x": 974.6140350877193,
+        "y": 67.33333333333333,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 542,
+        "is_parking": 0
+    },
+    {
+        "x": 886.2826086956521,
+        "y": 68.52173913043478,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 543,
+        "is_parking": 0
+    },
+    {
+        "x": 926.24,
+        "y": 69.82,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 544,
+        "is_parking": 0
+    },
+    {
+        "x": 1025.8333333333333,
+        "y": 72.11666666666666,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 545,
+        "is_parking": 0
+    },
+    {
+        "x": 702.4193548387096,
+        "y": 111.93548387096774,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 546,
+        "is_parking": 0
+    },
+    {
+        "x": 1017.56,
+        "y": 152.61333333333334,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 547,
+        "is_parking": 0
+    },
+    {
+        "x": 1074.7887323943662,
+        "y": 155.59154929577466,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 548,
+        "is_parking": 0
+    },
+    {
+        "x": 644.1147540983607,
+        "y": 161.19672131147541,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 549,
+        "is_parking": 0
+    },
+    {
+        "x": 606.939024390244,
+        "y": 199.79268292682926,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 550,
+        "is_parking": 0
+    },
+    {
+        "x": 550.2027027027027,
+        "y": 253.86486486486487,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 551,
+        "is_parking": 0
+    },
+    {
+        "x": 511.36842105263156,
+        "y": 295.7368421052632,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 552,
+        "is_parking": 0
+    },
+    {
+        "x": 455.2204724409449,
+        "y": 334.54330708661416,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 553,
+        "is_parking": 0
+    },
+    {
+        "x": 410.5,
+        "y": 366.46875,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 554,
+        "is_parking": 0
+    },
+    {
+        "x": 359.2705882352941,
+        "y": 383.6941176470588,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 555,
+        "is_parking": 0
+    },
+    {
+        "x": 315.1212121212121,
+        "y": 396.73737373737373,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 556,
+        "is_parking": 0
+    },
+    {
+        "x": 267.1384615384615,
+        "y": 412.18461538461537,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 557,
+        "is_parking": 0
+    },
+    {
+        "x": 217.10588235294117,
+        "y": 430.9647058823529,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 558,
+        "is_parking": 0
+    },
+    {
+        "x": 170.61627906976744,
+        "y": 446.5232558139535,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 559,
+        "is_parking": 0
+    },
+    {
+        "x": 131.29508196721312,
+        "y": 460.55737704918033,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 560,
+        "is_parking": 0
+    },
+    {
+        "x": 89.75,
+        "y": 470.38461538461536,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 561,
+        "is_parking": 0
+    },
+    {
+        "x": 4.64935064935065,
+        "y": 641.3246753246754,
+        "is_entrance": 1,
+        "is_empty": 0,
+        "id": 562,
+        "is_parking": 0
+    },
+    {
+        "x": 980.9461538461538,
+        "y": 642.3076923076923,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 563,
+        "is_parking": 0
+    },
+    {
+        "x": 703.0597014925373,
+        "y": 644.7164179104477,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 564,
+        "is_parking": 0
+    },
+    {
+        "x": 794.3454545454546,
+        "y": 643.5818181818182,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 565,
+        "is_parking": 0
+    },
+    {
+        "x": 1074.7916666666667,
+        "y": 642.875,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 566,
+        "is_parking": 0
+    },
+    {
+        "x": 86.45714285714286,
+        "y": 644.6428571428571,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 567,
+        "is_parking": 0
+    },
+    {
+        "x": 167.35714285714286,
+        "y": 642.9285714285714,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 568,
+        "is_parking": 0
+    },
+    {
+        "x": 357.85915492957747,
+        "y": 646.7464788732394,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 569,
+        "is_parking": 0
+    },
+    {
+        "x": 408.0,
+        "y": 644.6170212765958,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 570,
+        "is_parking": 0
+    },
+    {
+        "x": 458.16901408450707,
+        "y": 644.6056338028169,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 571,
+        "is_parking": 0
+    },
+    {
+        "x": 512.1219512195122,
+        "y": 644.8536585365854,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 572,
+        "is_parking": 0
+    },
+    {
+        "x": 553.7826086956521,
+        "y": 643.5,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 573,
+        "is_parking": 0
+    },
+    {
+        "x": 608.531914893617,
+        "y": 644.7446808510638,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 574,
+        "is_parking": 0
+    },
+    {
+        "x": 888.4647887323944,
+        "y": 644.4507042253521,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 575,
+        "is_parking": 0
+    },
+    {
+        "x": 923.65,
+        "y": 644.275,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 576,
+        "is_parking": 0
+    },
+    {
+        "x": 126.33928571428571,
+        "y": 645.5714285714286,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 577,
+        "is_parking": 0
+    },
+    {
+        "x": 222.46666666666667,
+        "y": 645.7777777777778,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 578,
+        "is_parking": 0
+    },
+    {
+        "x": 261.3333333333333,
+        "y": 645.3055555555555,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 579,
+        "is_parking": 0
+    },
+    {
+        "x": 319.3414634146341,
+        "y": 647.0243902439024,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 580,
+        "is_parking": 0
+    },
+    {
+        "x": 644.6818181818181,
+        "y": 646.6818181818181,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 581,
+        "is_parking": 0
+    },
+    {
+        "x": 737.2926829268292,
+        "y": 645.4878048780488,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 582,
+        "is_parking": 0
+    },
+    {
+        "x": 833.3409090909091,
+        "y": 645.0227272727273,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 583,
+        "is_parking": 0
+    },
+    {
+        "x": 1020.0990099009902,
+        "y": 646.9009900990098,
+        "is_entrance": 0,
+        "is_empty": 0,
+        "id": 584,
+        "is_parking": 0
+    },
+    {
+        "x": 1079.4347826086957,
+        "y": 708.0869565217391,
+        "is_entrance": 1,
+        "is_empty": 0,
+        "id": 585,
+        "is_parking": 0
+    }
+]
