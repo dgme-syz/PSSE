@@ -1,11 +1,11 @@
 <template>
   <div class="common-layout">
-    <el-container>
+    <el-container style="width: auto;">
       <el-header class="header">
-        <h1>NUAA · CS</h1> <h1>停车场管理系统</h1> <img src="../assets/1.png" alt="NUAA Logo" class = "logo-img" />
+        <h1>NUAA · CS · 停车场管理系统</h1> <img src="../assets/1.png" alt="NUAA Logo" class = "logo-img" />
       </el-header>
-      <el-container>
-      <div style="height=100%;">
+      <el-container style="width: 100%;">
+      <div>
         <el-aside width="200px" class="aside">
           <el-col >
       <h5 class="mb-2">主要功能</h5>
@@ -90,8 +90,12 @@ export default {
 .header {
   text-align: left; 
   background-color:#ffffff;
-  height: 95px;
+  height: 20%;
+  width: 100%;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #ccc;
 }
 

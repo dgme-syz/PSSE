@@ -22,9 +22,7 @@
         </div>
 
         <!-- 右侧的注册盒子 -->
-         <div class="background">
-            <div class="title"></div>
-        </div>
+         <div class="background"></div>
 
       </div>
     </div>
@@ -93,7 +91,7 @@ export default {
 
 .loginbox-in h2 {
     top:20%;
-    margin-top: 60px;
+    margin-top: 20%;
     font-size: 19px;
     font-weight: bold;
   /* 其他样式属性 */
@@ -102,48 +100,41 @@ export default {
 .button {
     display: flex;
     justify-content: space-between; /* 使用 flex 布局并设置两个元素之间的空间 */
-    padding: 30px; /* 添加左右内边距来隔开两个元素 */
-    margin-top: 14px; /* 设置上边距为 10 像素，可根据需要调整数值 */
+    padding: 10%; /* 添加左右内边距来隔开两个元素 */
+    margin-top: 20px; /* 设置上边距为 10 像素，可根据需要调整数值 */
 }
 
 .loginbox{
     display:flex;
     position:absolute;
-    width:800px;
-    height:400px;
+    width:50%;
+    height:45%;
     top:40%;
     left:50%;
     transform:translate(-50%,-50%);
     box-shadow: 0 12px 16px 0  rgba(0,0,0,0.24), 0 17px 50px 0 #666968;
 }
 .loginbox-in {
-  background: linear-gradient(to right, #F2F2F2, #F2F2F2 , #E9E9F3);
-  width: 240px;
+  background: linear-gradient(to right, #F2F5F7, #F2F5F7 , #F2F5F7);
+  width: 30%;
   /* 其他样式 */
 }
 .background {
-    width: 740px;
-    background: linear-gradient(to left bottom, #A7D8F2, #F2F2F2 , #D3D3D3);
+    width: 70%;
+    /* background: linear-gradient(to left bottom, #FFC0CB, #FFE9A3 , #FFF0F5); */
 }
 .userbox{
-    margin-top:60px ;
-    height:30px;
-     width:230px;
-     display: flex;
-     margin-left:25px;
+    margin-top:20% ;
+    height:10%;
+    width:60%;
+    display: flex;
+    margin-left:10%;
 }
 .pwdbox{ 
-    height:30px;
-    width:225px;
+    height:10%;
+    width:60%;
     display: flex;
-    margin-left:25px;
-}
-.title{
-    margin-top:320px;
-    font-weight:bold;
-    font-size:20px;
-    color:#4E655D;
-    
+    margin-left:10%;
 }
 .title:hover{
      font-size:21px;
@@ -158,7 +149,7 @@ input{
     border: 0;
     border-bottom:1px solid #E9E9E9;
     background-color:transparent;
-    height:20px;
+    height:50%;
      font-family:sans-serif;
     font-size:15px;
     color:#445b53;
@@ -205,10 +196,10 @@ input:-webkit-autofill::first-line {
     font-size:12px;
     display: flex;
     justify-content: space-between ;
-    width:190px;
+    width:20%;
     margin-left:30px;
     color:#4E655D;
-    margin-top:-5px;
+    margin-top:-2%;
     align-items: center;
    
 }
@@ -254,7 +245,7 @@ input:-webkit-autofill::first-line {
     font-size:12px;
     text-decoration:underline;
     display: flex;
-    margin-left:25px;
+    margin-left:2%;
     outline:none;
     
 }

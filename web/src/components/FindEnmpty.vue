@@ -1,5 +1,5 @@
 <template>
-    <div style="width: 30%;height: 55vh;">
+    <div style="width: 30%;height: auto;">
         <el-card class="box-card" style="width: 100%;height: 100%;" v-loading="load">
             <template #header>
                 <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
@@ -18,7 +18,7 @@
                     <el-select  
                     v-model="value"
                     placeholder="Select"
-                    style="width: 240px"
+                    style="width: auto"
                     >
                     <el-option
                         v-for="item in options"
@@ -66,7 +66,7 @@
             </div>
         </el-card>
   </div>
-  <div style="width: 30%;height: 55vh;margin-left: auto;">
+  <div style="width: 30%;height: auto;margin-left: auto;">
     <el-card class="left_box" style="height: 100%;">
         <template #header>
             <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
@@ -98,7 +98,7 @@
         </div>
     </el-card>
   </div>
-  <div style="width: 30%;height: 55vh;margin-left: auto;">
+  <div style="width: 30%;height: auto;margin-left: auto;">
     <el-card style="height: 100%;">
         <template #header>
             <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
