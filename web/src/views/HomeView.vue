@@ -13,10 +13,6 @@
         default-active="2"
         class="el-menu-vertical-demo"
       >
-        <el-menu-item index="/stats"  @click="currentTab = 'stats'">
-          <el-icon><document /></el-icon>
-          <span>统计模块</span>
-        </el-menu-item>
         <el-sub-menu index="2">
           <template #title>
             <el-icon><location /></el-icon>
@@ -28,6 +24,10 @@
           </el-menu-item-group>
         </el-sub-menu>
         <el-menu-item index="3" @click="currentTab = 'find'"><el-icon><Compass /></el-icon><span>自动寻路</span></el-menu-item>
+        <el-menu-item index="/stats"  @click="currentTab = 'stats'">
+          <el-icon><document /></el-icon>
+          <span>统计模块</span>
+        </el-menu-item>
         <el-menu-item index="4">
           <el-icon><Promotion /></el-icon>
           <span>联系我们</span>
@@ -62,7 +62,7 @@ import FindEnmpty from '@/components/FindEnmpty.vue';
 export default {
   data() {
     return {
-      currentTab: 'stats',
+      currentTab: 'find',
     };
   },
   components:{
